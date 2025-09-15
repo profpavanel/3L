@@ -6,13 +6,13 @@
 <title>Argomenti - Ripasso Grafica</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.org/2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
   body {
     font-family: 'Montserrat', sans-serif;
     color: #374151;
     font-size: 1.1rem;
-    padding-left: 240px; /* Spazio per il menu fisso su schermi grandi */
+    padding-left: 240px;
   }
   h1, h2, h3 {
     font-family: 'Permanent Marker', cursive;
@@ -48,7 +48,7 @@
   }
   .tab-bar {
     display: flex;
-    flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+    flex-wrap: wrap;
     gap: 1rem;
     position: sticky;
     top: 0;
@@ -111,7 +111,7 @@
   @media (max-width: 768px) {
     body {
       padding-left: 0;
-      padding-top: 60px; /* Spazio per il menu mobile */
+      padding-top: 60px;
     }
     .menu {
       width: 100%;
@@ -135,7 +135,7 @@
 <body>
 
 <div class="menu">
-  <a onclick="showPage('home')">Argomenti</a>
+  <a onclick="showPage('ripasso')">Ripasso</a>
   <a class="sub" onclick="showPage('lettering')">Lettering</a>
   <a class="sub" onclick="showPage('pittogrammi')">Pittogrammi & Loghi</a>
   <a onclick="showPage('altro')">Altro argomento</a>
@@ -143,7 +143,7 @@
 
 <div class="content">
 
-<div id="home" class="page-content">
+<div id="ripasso" class="page-content">
   <h1 class="text-3xl mb-4">Benvenuti agli Argomenti</h1>
   <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
 </div>
@@ -161,6 +161,14 @@
       <h3 class="text-xl font-bold">Cos'è un carattere</h3>
       <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
       <img src="https://via.placeholder.com/600x400.png?text=Cos%C3%A8+un+carattere" alt="Esempio cos'è un carattere">
+    </div>
+    
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Valori del carattere</h3>
+      <ul>
+        <li><strong>Verbale:</strong> parola con significato.</li>
+        <li><strong>Iconico:</strong> rappresentazione come immagine.</li>
+      </ul>
     </div>
 
     <div class="section-box">
@@ -312,7 +320,7 @@
 
   // Visualizza la prima pagina e il primo tab all'avvio
   document.addEventListener('DOMContentLoaded', () => {
-    showPage('home');
+    showPage('ripasso');
   });
 </script>
 
