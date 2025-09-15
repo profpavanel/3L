@@ -3,202 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ripasso: Il Carattere Tipografico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Ripasso Grafica - Classe 3L</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 1.1rem;
       line-height: 1.6;
-    }
-    header {
-      background-color: #facc15; /* giallo */
-      color: black;
-      padding: 15px;
-      text-align: center;
-    }
-    nav {
-      background-color: #eab308; /* giallo più scuro */
+      background-color: #fff;
+      color: #111;
       display: flex;
-      justify-content: center;
+    }
+
+    /* Menù laterale */
+    .sidebar {
+      width: 260px;
+      background-color: #FFD700; /* giallo 3L */
+      height: 100vh;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #000;
+    }
+
+    .accordion {
+      background-color: transparent;
+      color: #000;
+      cursor: pointer;
+      padding: 0.8rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .accordion:hover {
+      background-color: #f1c40f;
+    }
+
+    .panel {
+      display: none;
+      padding-left: 1rem;
+    }
+
+    .panel a {
+      display: block;
+      padding: 0.5rem 0;
+      text-decoration: none;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    .panel a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contenuto centrale */
+    .content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+    }
+
+    .columns {
+      display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
     }
-    nav button {
-      background: none;
-      border: none;
-      color: black;
-      font-weight: 600;
-      padding: 12px 20px;
-      cursor: pointer;
-    }
-    nav button.active {
-      background-color: #fef08a; /* giallo chiaro per tab attiva */
-      border-bottom: 3px solid #ca8a04;
-    }
-    section {
-      padding: 20px;
-      margin: 20px;
-      background-color: white;
+
+    .column {
+      flex: 1;
+      min-width: 200px;
+      background: #f9f9f9;
+      padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: none; /* nascosto di default */
     }
-    section.active {
-      display: block;
-    }
-    h2 {
-      color: #ca8a04;
-    }
+
     img {
       max-width: 100%;
-      display: block;
-      margin: 15px auto;
-      border-radius: 8px;
-    }
-    .note {
-      background: #fef9c3;
-      padding: 10px;
-      border-left: 5px solid #ca8a04;
-      margin: 15px 0;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      text-align: center;
-    }
-    .grid-3 div {
-      background: #fefce8;
-      padding: 15px;
-      border: 1px solid #ddd;
+      height: auto;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
       border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ripasso: Il Carattere Tipografico</h1>
-  </header>
-
-  <nav>
-    <button class="tablink active" data-tab="carattere">Che cos’è</button>
-    <button class="tablink" data-tab="categorie">Categorie</button>
-    <button class="tablink" data-tab="anatomia">Anatomia</button>
-    <button class="tablink" data-tab="varianti">Stile e Varianti</button>
-    <button class="tablink" data-tab="schema">Schema</button>
-  </nav>
-
-  <section id="carattere" class="active">
-    <h2>Che cos’è il carattere?</h2>
-    <p>
-      Il <strong>carattere</strong> è l’insieme di numeri, lettere e segni accomunati dallo stesso stile.  
-      Un <strong>font</strong> è quindi l’intera serie di un carattere.  
-    </p>
-    <p>
-      La <strong>famiglia tipografica</strong> è invece un gruppo di font che seguono gli stessi criteri di aspetto e struttura.  
-      Le varianti possono dipendere da: <em>dimensioni del corpo, pesi e spessori, inclinazione e larghezza</em>.
-    </p>
-    <div class="note">
-      📌 I caratteri non servono solo per essere leggibili, ma anche per comunicare emozioni e dare identità a un testo.
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Argomenti</h2>
+    <button class="accordion">Ripasso</button>
+    <div class="panel">
+      <a href="#" onclick="showContent('lettering')">Lettering</a>
+      <a href="#" onclick="showContent('pittogrammi')">Pittogrammi e Loghi</a>
     </div>
-    <img src="famiglia-tipografica.jpg" alt="Esempio di famiglia tipografica">
-  </section>
+  </div>
 
-  <section id="categorie">
-    <h2>Principali categorie</h2>
-    <p>I caratteri si distinguono soprattutto in due categorie:</p>
-    <ul>
-      <li><strong>Serif</strong>: con grazie (es. <span style="font-family: 'Times New Roman', serif;">Times New Roman</span>), usati spesso in testi lunghi e libri perché aiutano l’occhio a seguire la riga.</li>
-      <li><strong>Sans Serif</strong>: senza grazie (es. <span style="font-family: Arial, sans-serif;">Arial</span>), usati molto nel digitale per la loro chiarezza.</li>
-    </ul>
-    <img src="serif-vs-sans.jpg" alt="Esempi di caratteri Serif e Sans Serif">
-  </section>
-
-  <section id="anatomia">
-    <h2>Anatomia della lettera</h2>
-    <p>
-      L’<strong>anatomia</strong> di un carattere è il modo in cui è composta ogni singola lettera.  
-      Ha principalmente due parti:
-    </p>
-    <ul>
-      <li><strong>Aste</strong> – possono essere curve, rette o miste.</li>
-      <li><strong>Grazie</strong> – piccoli tratti terminali (non sempre presenti).</li>
-    </ul>
-
-    <h3>Aste</h3>
-    <div class="grid-3">
-      <div>
-        <h4>Curve</h4>
-        <p>C, S</p>
-        <img src="aste-curve.jpg" alt="Esempio di aste curve">
-      </div>
-      <div>
-        <h4>Rette</h4>
-        <p>T, I, L</p>
-        <img src="aste-rette.jpg" alt="Esempio di aste rette">
-      </div>
-      <div>
-        <h4>Miste</h4>
-        <p>G, R</p>
-        <img src="aste-miste.jpg" alt="Esempio di aste miste">
-      </div>
-    </div>
-  </section>
-
-  <section id="varianti">
-    <h2>Stile e varianti</h2>
-    <p>
-      Ogni carattere tipografico ha uno <strong>stile</strong> e delle <strong>varianti</strong>, che dipendono da:
-    </p>
-    <ul>
-      <li>Spessore delle aste (es. Light, Regular, Bold)</li>
-      <li>Larghezza del carattere (Condensed, Regular, Extended)</li>
-      <li>Pendenza (Upright, Italic, Oblique)</li>
-    </ul>
-    <div class="note">
-      ℹ️ Le varianti servono a creare gerarchie visive e a dare ritmo a un testo.
-    </div>
-    <img src="varianti.jpg" alt="Esempio di varianti tipografiche">
-  </section>
-
-  <section id="schema">
-    <h2>Schema degli elementi del carattere</h2>
-    <p>Gli elementi principali di un carattere tipografico sono:</p>
-    <ul>
-      <li>Corpo</li>
-      <li>Aste</li>
-      <li>Occhio medio</li>
-      <li>Linea di base</li>
-    </ul>
-    <img src="schema-carattere.jpg" alt="Schema degli elementi del carattere">
-  </section>
-
-  <section id="laboratorio">
-    <h2>Laboratorio</h2>
-    <div class="note">
-      👉 Qui inseriremo le attività pratiche (quiz, esercizi, abbinamenti) quando mi darai le tracce.
-    </div>
-  </section>
+  <!-- Contenuto -->
+  <div class="content" id="main-content">
+    <h1>Benvenuti al Ripasso</h1>
+    <p>Seleziona un argomento dal menù a sinistra per iniziare.</p>
+  </div>
 
   <script>
-    // Script per gestire i tab
-    const buttons = document.querySelectorAll(".tablink");
-    const sections = document.querySelectorAll("section");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        // reset
-        buttons.forEach(b => b.classList.remove("active"));
-        sections.forEach(s => s.classList.remove("active"));
-
-        // attiva tab e sezione
-        btn.classList.add("active");
-        document.getElementById(btn.dataset.tab).classList.add("active");
+    // Accordion
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        let panel = this.nextElementSibling;
+        panel.style.display = (panel.style.display === "block") ? "none" : "block";
       });
-    });
+    }
+
+    // Contenuti
+    const contents = {
+      lettering: `
+        <h1>Lettering</h1>
+        <h2>Definizioni</h2>
+        <p><strong>Carattere tipografico</strong>: insieme di lettere, numeri e segni accomunati dallo stesso stile.</p>
+        <p><strong>Font</strong>: una serie completa di caratteri in un determinato stile e corpo.</p>
+        <p><strong>Famiglia tipografica</strong>: gruppo di font che condividono criteri comuni (aspetto, struttura, proporzioni).</p>
+
+        <h2>Varianti</h2>
+        <p>I caratteri variano per dimensione, spessore, inclinazione, larghezza.</p>
+
+        <h2>Categorie principali</h2>
+        <ul>
+          <li><strong>Serif</strong> (con grazie) → es. Times New Roman</li>
+          <li><strong>Sans serif</strong> (senza grazie, lineari) → es. Helvetica, Arial</li>
+        </ul>
+        <img src="serif-vs-sans.jpg" alt="Confronto tra Serif e Sans serif">
+
+        <h2>Anatomia della lettera</h2>
+        <p>Le lettere hanno due parti principali: <strong>aste</strong> e <strong>grazie</strong> (non sempre presenti).</p>
+        <div class="columns">
+          <div class="column">
+            <h3>Aste curve</h3>
+            <p>C, S, O</p>
+          </div>
+          <div class="column">
+            <h3>Aste rette</h3>
+            <p>T, I, L</p>
+          </div>
+          <div class="column">
+            <h3>Aste miste</h3>
+            <p>G, R</p>
+          </div>
+        </div>
+        <img src="schema-lettera.jpg" alt="Schema di un carattere tipografico">
+
+        <h2>Stile e Varianti</h2>
+        <p>Un carattere può distinguersi per:</p>
+        <ul>
+          <li>Spessore delle aste</li>
+          <li>Larghezza del carattere</li>
+          <li>Pendenza (corsivo vs diritto)</li>
+        </ul>
+        <p><em>Esempio:</em> Helvetica Regular, Bold, Italic sono varianti della stessa famiglia.</p>
+      `,
+
+      pittogrammi: `
+        <h1>Pittogrammi e Loghi</h1>
+        <h2>Pittogrammi</h2>
+        <p>I <strong>pittogrammi</strong> sono segni grafici semplici e immediati, spesso utilizzati per trasmettere un messaggio universale (es. segnaletica stradale, simboli olimpici).</p>
+        <img src="pittogramma.jpg" alt="Esempio di pittogramma">
+
+        <h2>Loghi</h2>
+        <p>Il <strong>logo</strong> è un segno distintivo che rappresenta un'azienda, un prodotto o un servizio. Può essere composto da testo (logotipo), da un simbolo (marchio) o dalla combinazione di entrambi.</p>
+        <img src="logo.jpg" alt="Esempio di logo">
+
+        <h2>Differenze</h2>
+        <ul>
+          <li><strong>Pittogramma:</strong> comunicazione universale, semplice, non legata a un brand.</li>
+          <li><strong>Logo:</strong> identità visiva di un soggetto preciso (azienda, prodotto, istituzione).</li>
+        </ul>
+      `
+    };
+
+    function showContent(section) {
+      document.getElementById("main-content").innerHTML = contents[section];
+    }
   </script>
 </body>
 </html>
