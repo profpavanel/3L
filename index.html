@@ -12,7 +12,7 @@ body { font-family: 'Montserrat', sans-serif; color: #374151; }
 h1,h2,h3 { font-family: 'Permanent Marker', cursive; }
 .menu { width: 220px; position: fixed; top: 0; left: 0; bottom: 0; background-color: #fef08a; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; }
 .menu a { display: block; text-decoration: none; color: #000; font-weight: 600; }
-.menu a.sub { font-style: italic; margin-left: 1rem; color: #000; }
+.menu a.sub { font-style: italic; margin-left: 1rem; color: #000; cursor: pointer; }
 .content { margin-left: 240px; padding: 2rem; transition: all 0.3s ease-in-out; }
 .tab-bar { display: flex; gap: 1rem; position: sticky; top: 0; background-color: #fff8dc; padding: 0.5rem 0; z-index: 10; }
 .tab-bar button { background-color: #f97316; color: white; font-weight: 600; padding: 0.5rem 1rem; border-radius: 0.5rem; border: none; cursor: pointer; transition: all 0.2s; }
@@ -20,6 +20,9 @@ h1,h2,h3 { font-family: 'Permanent Marker', cursive; }
 .tab-content { display: none; margin-top: 1rem; }
 .tab-content.active { display: block; }
 img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
+.diagram { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+.diagram div { display: flex; align-items: center; gap: 1rem; }
+.diagram span { font-weight: 600; color: #f97316; }
 </style>
 </head>
 <body>
@@ -27,11 +30,8 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
 <!-- Menu Laterale -->
 <div class="menu">
   <a href="#" onclick="showPage('home')">Argomenti</a>
-  <a href="#" onclick="toggleSub('ripasso-sub')">Ripasso</a>
-  <div id="ripasso-sub" style="display:none;">
-    <a href="#" class="sub" onclick="showPage('lettering')">Lettering</a>
-    <a href="#" class="sub" onclick="showPage('pittogrammi')">Pittogrammi & Loghi</a>
-  </div>
+  <a class="sub" onclick="showPage('lettering')">Lettering</a>
+  <a class="sub" onclick="showPage('pittogrammi')">Pittogrammi & Loghi</a>
   <a href="#" onclick="showPage('altro')">Altro argomento</a>
 </div>
 
@@ -49,68 +49,58 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
   <h2 class="text-3xl text-orange-600 mb-4">Lettering</h2>
   <div class="tab-bar">
     <button onclick="showTab('definizione')">Definizione</button>
-    <button onclick="showTab('famiglie')">Famiglie</button>
-    <button onclick="showTab('aste')">Aste</button>
-    <button onclick="showTab('spessore-larghezza')">Spessore & Larghezza</button>
     <button onclick="showTab('anatomia')">Anatomia</button>
   </div>
 
   <!-- Contenuti tab -->
   <div id="definizione" class="tab-content active">
-    <p>Il carattere è un insieme di numeri e segni accomunati dallo stesso stile. Il font quindi è un'intera serie.</p>
-    <p>La famiglia tipografica è un gruppo di font che seguono gli stessi criteri di aspetto e struttura.</p>
-  </div>
-
-  <div id="famiglie" class="tab-content">
-    <p>I caratteri sono raggruppati per famiglie in cui le varianti sono date da dimensioni del corpo, pesi e spessori, inclinazione e larghezza.</p>
+    <p><strong>Definizione:</strong> Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
+    <p><strong>Famiglia tipografica:</strong> Gruppo di font che condividono caratteristiche simili di forma, struttura e proporzioni.</p>
     <p>Le principali categorie sono:</p>
     <ul class="list-disc list-inside">
-      <li><strong>Serif (con grazie):</strong> Times New Roman, Garamond</li>
-      <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat</li>
+      <li><strong>Serif (con grazie):</strong> Times New Roman, Garamond, Georgia.</li>
+      <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat.</li>
     </ul>
+    <p>Le varianti di un carattere possono dipendere da dimensione del corpo, pesi (bold, light), inclinazioni (italics) e larghezza.</p>
+    <img src="./famiglie.jpg" alt="Esempio famiglie tipografiche">
   </div>
 
-  <div id="aste" class="tab-content">
-    <p>Per anatomia, si intende com'è composta ogni singola lettera.</p>
-    <div class="grid grid-cols-3 gap-4 mt-4">
+  <div id="anatomia" class="tab-content">
+    <p><strong>Anatomia di un carattere:</strong> Ogni lettera è composta da:</p>
+    <ul class="list-disc list-inside">
+      <li>Corpo: altezza generale della lettera</li>
+      <li>Aste: parti principali della lettera</li>
+      <li>Occhio medio: spazio interno delle lettere (es. "o", "e")</li>
+      <li>Linea base: linea di riferimento per tutte le lettere</li>
+      <li>Grazie (se presenti)</li>
+    </ul>
+
+    <h4 class="mt-4 font-bold">Aste</h4>
+    <div class="grid grid-cols-3 gap-4 mt-2">
       <div>
-        <h4 class="font-bold">Curve</h4>
+        <h5 class="font-semibold">Curve</h5>
         <p>C, S, G, R</p>
         <img src="./curve.jpg" alt="Esempio Aste Curve">
       </div>
       <div>
-        <h4 class="font-bold">Rette</h4>
+        <h5 class="font-semibold">Rette</h5>
         <p>T, I, L</p>
         <img src="./rette.jpg" alt="Esempio Aste Rette">
       </div>
       <div>
-        <h4 class="font-bold">Miste</h4>
+        <h5 class="font-semibold">Miste</h5>
         <p>G, R</p>
         <img src="./miste.jpg" alt="Esempio Aste Miste">
       </div>
     </div>
-  </div>
 
-  <div id="spessore-larghezza" class="tab-content">
-    <p>Il carattere tipografico ha uno stile e delle varianti dettate da:</p>
-    <ul class="list-disc list-inside">
-      <li>Spessore delle aste</li>
-      <li>Larghezza del carattere</li>
-      <li>Pendenza</li>
-    </ul>
-    <img src="./spessore.jpg" alt="Spessore e larghezza">
-  </div>
-
-  <div id="anatomia" class="tab-content">
-    <p>Elementi principali del carattere:</p>
-    <ul class="list-disc list-inside">
-      <li>Corpo</li>
-      <li>Aste</li>
-      <li>Occhio medio</li>
-      <li>Linea base</li>
-      <li>Grazie (se presenti)</li>
-    </ul>
-    <img src="./anatomia.jpg" alt="Schema anatomia carattere">
+    <h4 class="mt-4 font-bold">Spessore, Larghezza e Pendenza</h4>
+    <div class="diagram">
+      <div><span>Spessore delle aste →</span><p>Può essere uniforme o modulare (cambia spessore lungo l’asta).</p></div>
+      <div><span>Larghezza del carattere →</span><p>Carattere condensato, normale o espanso.</p></div>
+      <div><span>Pendenza →</span><p>Inclinate o dritte (regular, italics).</p></div>
+    </div>
+    <img src="./schemino_varianti.jpg" alt="Schemino Spessore, Larghezza, Pendenza">
   </div>
 </div>
 
@@ -123,40 +113,48 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
   </div>
 
   <div id="pittogrammi-tab" class="tab-content active">
-    <p>I pittogrammi sono simboli grafici che rappresentano concetti in modo semplice e immediato.</p>
-    <img src="./pittogrammi.jpg" alt="Esempio Pittogrammi">
+    <p><strong>Pittogrammi:</strong> Immagini stilizzate che comunicano rapidamente un concetto o un'azione.</p>
+    <ul class="list-disc list-inside">
+      <li>Devono essere semplici e leggibili</li>
+      <li>Si usano colori contrastanti per visibilità</li>
+      <li>Ideali per segnaletica, icone e infografiche</li>
+    </ul>
+    <img src="./pittogrammi.jpg" alt="Esempio di Pittogrammi">
   </div>
 
   <div id="loghi-tab" class="tab-content">
-    <p>I loghi rappresentano l'identità visiva di un brand o progetto e devono essere riconoscibili e leggibili.</p>
-    <img src="./loghi.jpg" alt="Esempio Loghi">
+    <p><strong>Loghi:</strong> Rappresentano l’identità visiva di un brand o progetto.</p>
+    <ul class="list-disc list-inside">
+      <li>Devono essere semplici e riconoscibili</li>
+      <li>Possono avere versioni monocromatiche o a colori</li>
+      <li>Il font scelto deve essere leggibile anche a persone con disabilità</li>
+    </ul>
+    <img src="./loghi.jpg" alt="Esempio di Loghi">
   </div>
 </div>
 
 <!-- Pagina Altro -->
 <div id="altro" class="page-content" style="display:none;">
-  <h2 class="text-3xl text-orange-600 mb-4">Altro Argomento</h2>
-  <p>Contenuto di esempio per altri argomenti.</p>
+  <h2 class="text-3xl text-orange-600 mb-4">Altro argomento</h2>
+  <p>Qui potrai inserire altri argomenti di ripasso o approfondimento.</p>
 </div>
 
 <script>
-function toggleSub(id) {
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+function showPage(pageId){
+  document.querySelectorAll('.page-content').forEach(p => p.style.display='none');
+  document.getElementById(pageId).style.display='block';
+  // Attiva la prima tab della pagina automaticamente
+  const firstTab = document.getElementById(pageId).querySelector('.tab-content');
+  if(firstTab){
+    document.getElementById(pageId).querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    firstTab.classList.add('active');
+  }
 }
 
-function showPage(id) {
-  document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-  // Mostra sempre prima tab attiva
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  const firstTab = document.getElementById(id).querySelector('.tab-content');
-  if(firstTab) firstTab.classList.add('active');
-}
-
-function showTab(id) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+function showTab(tabId){
+  const parent = document.getElementById(tabId).parentElement;
+  parent.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
 }
 </script>
 
