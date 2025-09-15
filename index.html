@@ -24,6 +24,7 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
 .diagram { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
 .diagram div { display: flex; align-items: center; gap: 1rem; }
 .diagram span { font-weight: 600; color: #f97316; }
+.grid-img3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 </style>
 </head>
 <body>
@@ -42,7 +43,7 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
 <!-- Pagina Home -->
 <div id="home" class="page-content">
   <h1 class="text-3xl mb-4">Benvenuti agli Argomenti</h1>
-  <p>Qui troverai tutti gli argomenti che tratteremo durante l'anno.</p>
+  <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
 </div>
 
 <!-- Pagina Lettering -->
@@ -59,17 +60,15 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
     <div class="section-box">
       <h3 class="text-xl font-bold">Cos'è un carattere</h3>
       <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
+      <img src="./cosècarattere.jpg" alt="Esempio cos'è un carattere">
     </div>
     <div class="section-box">
       <h3 class="text-xl font-bold">Famiglie tipografiche</h3>
       <p>Gruppo di font che condividono caratteristiche simili di forma, struttura e proporzioni.</p>
-      <p>Le principali categorie sono:</p>
-      <ul class="list-disc list-inside">
-        <li><strong>Serif (con grazie):</strong> Times New Roman, Garamond, Georgia</li>
-        <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat</li>
-      </ul>
-      <p>Varianti: dimensione, peso, inclinazione, larghezza</p>
-      <img src="./famiglie.jpg" alt="Esempio famiglie tipografiche">
+      <div class="grid grid-cols-2 gap-4 mt-2">
+        <img src="./famiglia1.jpg" alt="Famiglia tipografica 1">
+        <img src="./famiglia2.jpg" alt="Famiglia tipografica 2">
+      </div>
     </div>
   </div>
 
@@ -97,13 +96,13 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
     </div>
 
     <div class="section-box">
-      <h3 class="text-xl font-bold">Spessore, Larghezza, Pendenza</h3>
-      <div class="diagram">
-        <div><span>Spessore delle aste →</span><p>Uniforme o modulare (cambia spessore lungo l’asta)</p></div>
-        <div><span>Larghezza →</span><p>Condensato, normale o espanso</p></div>
-        <div><span>Pendenza →</span><p>Inclinate o dritte (regular, italics)</p></div>
+      <h3 class="text-xl font-bold">Varianti</h3>
+      <div class="grid grid-cols-3 gap-4 mt-2">
+        <div><strong>Spessore</strong></div>
+        <div><strong>Larghezza</strong></div>
+        <div><strong>Pendenza</strong></div>
       </div>
-      <img src="./schemino_varianti.jpg" alt="Schemino Spessore, Larghezza, Pendenza">
+      <img src="./varianti.jpg" alt="Esempio Varianti">
     </div>
   </div>
 
@@ -113,17 +112,29 @@ img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
       <h3 class="text-xl font-bold">Spaziatura</h3>
       <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
       <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
-      <p><strong>Interlinea:</strong> Spazio tra le righe di testo</p>
-      <img src="./spaziatura.jpg" alt="Esempio spaziatura">
+      <img src="./spaziatura.jpg" alt="Esempio Spaziatura">
+    </div>
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Interlinea</h3>
+      <p>Spazio tra le righe di testo. Esistono diversi tipi di interlinea, ad esempio singola, 1.5x, doppia o proporzionale al corpo del testo. L'interlinea influisce sulla leggibilità e sull'impatto visivo.</p>
+      <img src="./interlinea.jpg" alt="Esempio Interlinea">
     </div>
     <div class="section-box">
       <h3 class="text-xl font-bold">Allineamento</h3>
-      <ul class="list-disc list-inside">
-        <li>Bandiera (allineato a sinistra)</li>
-        <li>Centrale</li>
-        <li>Giustificato</li>
-      </ul>
-      <img src="./allineamento.jpg" alt="Esempio allineamento">
+      <div class="grid grid-cols-3 gap-4 mt-2">
+        <div>
+          <p><strong>Bandiera</strong> (allineato a sinistra)</p>
+          <img src="./bandiera.jpg" alt="Esempio Bandiera">
+        </div>
+        <div>
+          <p><strong>Centrale</strong></p>
+          <img src="./centrale.jpg" alt="Esempio Centrale">
+        </div>
+        <div>
+          <p><strong>Giustificato</strong></p>
+          <img src="./giustificato.jpg" alt="Esempio Giustificato">
+        </div>
+      </div>
     </div>
   </div>
 </div>
