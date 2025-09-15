@@ -6,12 +6,12 @@
 <title>Argomenti - Grafica</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.org/2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
   body {
     font-family: 'Montserrat', sans-serif;
     color: #374151;
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* testo più grande */
     padding-left: 240px;
   }
   h1, h2, h3 {
@@ -77,10 +77,12 @@
     display: block;
   }
   img {
-    max-width: 100%;
+    max-width: 50%; /* ridotte al 50% */
     height: auto;
     border-radius: 0.5rem;
     cursor: pointer;
+    display: block;
+    margin: 0.5rem auto;
   }
   .section-box {
     border: 2px solid #f97316;
@@ -159,9 +161,8 @@
   <div id="definizione" class="tab-content active">
     <div class="section-box">
       <h3 class="text-xl font-bold">Cos'è un carattere</h3>
-      <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. 
-        Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
-      <img src="./carattere.jpg" alt="Esempio cos'è un carattere">
+      <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
+      <a href="./carattere.jpg" target="_blank"><img src="./carattere.jpg" alt="Esempio cos'è un carattere"></a>
     </div>
     
     <div class="section-box">
@@ -180,8 +181,8 @@
         <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat</li>
       </ul>
       <div class="grid grid-cols-2 gap-4 mt-2">
-        <img src="./serif.jpg" alt="Esempio Serif">
-        <img src="./sans-serif.jpg" alt="Esempio Sans-serif">
+        <a href="./serif.jpg" target="_blank"><img src="./serif.jpg" alt="Esempio Serif"></a>
+        <a href="./sans-serif.jpg" target="_blank"><img src="./sans-serif.jpg" alt="Esempio Sans-serif"></a>
       </div>
     </div>
 
@@ -189,7 +190,7 @@
       <h3 class="text-xl font-bold">Famiglie tipografiche</h3>
       <p>Gruppo di font che condividono caratteristiche simili di forma, struttura e proporzioni. Le famiglie tipografiche possono avere più varianti di peso, larghezza, inclinazione e proporzioni interne che influenzano la leggibilità e lo stile complessivo.</p>
       <div class="grid grid-cols-2 gap-4 mt-2">
-        <img src="./famiglia1.jpg" alt="Famiglia tipografica 1">
+        <a href="./famiglia1.jpg" target="_blank"><img src="./famiglia1.jpg" alt="Famiglia tipografica 1"></a>
       </div>
     </div>
   </div>
@@ -201,17 +202,17 @@
         <div>
           <h5 class="font-semibold">Curve</h5>
           <p>C, S, G, R</p>
-          <img src="https://via.placeholder.com/200x150.png?text=Aste+Curve" alt="Esempio Aste Curve">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Curve" alt="Esempio Aste Curve"></a>
         </div>
         <div>
           <h5 class="font-semibold">Rette</h5>
           <p>T, I, L</p>
-          <img src="https://via.placeholder.com/200x150.png?text=Aste+Rette" alt="Esempio Aste Rette">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Rette" alt="Esempio Aste Rette"></a>
         </div>
         <div>
           <h5 class="font-semibold">Miste</h5>
           <p>G, R</p>
-          <img src="https://via.placeholder.com/200x150.png?text=Aste+Miste" alt="Esempio Aste Miste">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Miste" alt="Esempio Aste Miste"></a>
         </div>
       </div>
     </div>
@@ -224,7 +225,7 @@
         <li><strong>Larghezza del carattere:</strong> Può essere condensato, normale o espanso.</li>
         <li><strong>Pendenza:</strong> Determina se il carattere è inclinato o dritto (obliquo, italico).</li>
       </ul>
-      <img src="https://via.placeholder.com/600x300.png?text=Varianti" alt="Esempio Varianti">
+      <a href="#"><img src="https://via.placeholder.com/600x300.png?text=Varianti" alt="Esempio Varianti"></a>
     </div>
   </div>
 
@@ -233,27 +234,27 @@
       <h3 class="text-xl font-bold">Spaziatura</h3>
       <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
       <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
-      <img src="https://via.placeholder.com/600x200.png?text=Spaziatura" alt="Esempio Spaziatura">
+      <a href="#"><img src="https://via.placeholder.com/600x200.png?text=Spaziatura" alt="Esempio Spaziatura"></a>
     </div>
     <div class="section-box">
       <h3 class="text-xl font-bold">Interlinea</h3>
       <p>Spazio tra le righe di testo. Esistono diversi tipi di interlinea, ad esempio singola, 1.5x, doppia o proporzionale al corpo del testo. L'interlinea influisce sulla leggibilità e sull'impatto visivo.</p>
-      <img src="https://via.placeholder.com/600x200.png?text=Interlinea" alt="Esempio Interlinea">
+      <a href="#"><img src="https://via.placeholder.com/600x200.png?text=Interlinea" alt="Esempio Interlinea"></a>
     </div>
     <div class="section-box">
       <h3 class="text-xl font-bold">Allineamento</h3>
       <div class="grid grid-cols-3 gap-4 mt-2">
         <div>
           <p><strong>Bandiera</strong> (allineato a sinistra)</p>
-          <img src="https://via.placeholder.com/200x150.png?text=Bandiera" alt="Esempio Bandiera">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Bandiera" alt="Esempio Bandiera"></a>
         </div>
         <div>
           <p><strong>Centrale</strong></p>
-          <img src="https://via.placeholder.com/200x150.png?text=Centrale" alt="Esempio Centrale">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Centrale" alt="Esempio Centrale"></a>
         </div>
         <div>
           <p><strong>Giustificato</strong></p>
-          <img src="https://via.placeholder.com/200x150.png?text=Giustificato" alt="Esempio Giustificato">
+          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Giustificato" alt="Esempio Giustificato"></a>
         </div>
       </div>
     </div>
@@ -276,7 +277,7 @@
         <li>Colori contrastanti per visibilità</li>
         <li>Ideali per segnaletica, icone e infografiche</li>
       </ul>
-      <img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Pittogrammi" alt="Esempio di Pittogrammi">
+      <a href="#"><img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Pittogrammi" alt="Esempio di Pittogrammi"></a>
     </div>
   </div>
 
@@ -286,44 +287,4 @@
       <ul class="list-disc list-inside">
         <li>Semplici e riconoscibili</li>
         <li>Versioni monocromatiche o a colori</li>
-        <li>Font leggibile anche per persone con disabilità</li>
-      </ul>
-      <img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Loghi" alt="Esempio di Loghi">
-    </div>
-  </div>
-</div>
-
-<div id="altro" class="page-content" style="display:none;">
-  <h2 class="text-3xl text-orange-600 mb-4">Altro argomento</h2>
-  <p>Qui potrai inserire altri argomenti di ripasso o approfondimento.</p>
-</div>
-
-<script>
-  function showPage(pageId) {
-    document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-
-    const firstTabButton = document.querySelector(`#${pageId} .tab-bar button`);
-    if (firstTabButton) {
-      const firstTabId = firstTabButton.getAttribute('onclick').match(/'([^']+)'/)[1];
-      showTab(firstTabId);
-    }
-  }
-
-  function showTab(tabId) {
-    const parentPage = document.getElementById(tabId).closest('.page-content');
-    if (parentPage) {
-      parentPage.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    }
-    document.getElementById(tabId).classList.add('active');
-  }
-
-  // Visualizza la prima pagina e il primo tab all'avvio
-  document.addEventListener('DOMContentLoaded', () => {
-    showPage('ripasso');
-  });
-</script>
-
-</body>
-</html>
-
+        <li>Font leggibile anche per persone c
