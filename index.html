@@ -8,14 +8,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
+<style>
   body {
     font-family: 'Montserrat', sans-serif;
     color: #374151;
-    font-size: 1.25rem; /* testo più grande */
+    font-size: 1.3rem; /* testo più grande */
     padding-left: 240px;
   }
-  h1, h2, h3 {
+  h1 {
     font-family: 'Permanent Marker', cursive;
+    font-size: 3rem; /* titolo principale più grande */
+  }
+  h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem; /* sottotitoli più grandi */
+  }
+  h3 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem; /* titoli sezioni più grandi */
+  }
+
+  img {
+    max-width: 50%; /* ridotte al 50% */
+    height: auto;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
   }
   .menu {
     width: 220px;
@@ -77,12 +101,10 @@
     display: block;
   }
   img {
-    max-width: 50%; /* ridotte al 50% */
+    max-width: 100%;
     height: auto;
     border-radius: 0.5rem;
     cursor: pointer;
-    display: block;
-    margin: 0.5rem auto;
   }
   .section-box {
     border: 2px solid #f97316;
@@ -145,11 +167,13 @@
 
 <div class="content">
 
+<!-- Pagina Ripasso -->
 <div id="ripasso" class="page-content">
   <h1 class="text-3xl mb-4">Benvenuti!</h1>
   <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
 </div>
 
+<!-- Pagina Lettering -->
 <div id="lettering" class="page-content" style="display:none;">
   <h2 class="text-3xl text-orange-600 mb-4">Lettering</h2>
   <div class="tab-bar">
@@ -158,31 +182,28 @@
     <button onclick="showTab('composizione')">Composizione & Allineamenti</button>
   </div>
 
+  <!-- Tab Definizione -->
   <div id="definizione" class="tab-content active">
     <div class="section-box">
       <h3 class="text-xl font-bold">Cos'è un carattere</h3>
       <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
-      <a href="./carattere.jpg" target="_blank"><img src="./carattere.jpg" alt="Esempio cos'è un carattere"></a>
+      <img src="./images/carattere.jpg" alt="Esempio cos'è un carattere">
     </div>
     
     <div class="section-box">
       <h3 class="text-xl font-bold">Valori del carattere</h3>
       <ul>
-        <li><strong>Verbale:</strong> parola con significato.</li>
-        <li><strong>Iconico:</strong> rappresentazione come immagine.</li>
+        <li><strong>Verbale:</strong> parola con significato</li>
+        <li><strong>Iconico:</strong> rappresentazione come immagine</li>
       </ul>
     </div>
 
     <div class="section-box">
       <h3 class="text-xl font-bold">Categorie</h3>
-      <p>Le principali categorie di caratteri sono:</p>
-      <ul>
-        <li><strong>Serif (con grazie):</strong> Times New Roman, Garamond, Georgia</li>
-        <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat</li>
-      </ul>
+      <p>“Serif” significa “grazia”, ovvero gli allungamenti alle estremità del carattere. I serif vengono detti anche graziati, i sans serif (senza grazie) vengono detti bastoni.</p>
       <div class="grid grid-cols-2 gap-4 mt-2">
-        <a href="./serif.jpg" target="_blank"><img src="./serif.jpg" alt="Esempio Serif"></a>
-        <a href="./sans-serif.jpg" target="_blank"><img src="./sans-serif.jpg" alt="Esempio Sans-serif"></a>
+        <img src="./images/serif.jpg" alt="Esempio Serif">
+        <img src="./images/sans-serif.jpg" alt="Esempio Sans-serif">
       </div>
     </div>
 
@@ -190,11 +211,12 @@
       <h3 class="text-xl font-bold">Famiglie tipografiche</h3>
       <p>Gruppo di font che condividono caratteristiche simili di forma, struttura e proporzioni. Le famiglie tipografiche possono avere più varianti di peso, larghezza, inclinazione e proporzioni interne che influenzano la leggibilità e lo stile complessivo.</p>
       <div class="grid grid-cols-2 gap-4 mt-2">
-        <a href="./famiglia1.jpg" target="_blank"><img src="./famiglia1.jpg" alt="Famiglia tipografica 1"></a>
+        <img src="./images/famiglia1.jpg" alt="Famiglia tipografica 1">
       </div>
     </div>
   </div>
 
+  <!-- Tab Anatomia -->
   <div id="anatomia" class="tab-content">
     <div class="section-box">
       <h3 class="text-xl font-bold">Aste</h3>
@@ -202,65 +224,68 @@
         <div>
           <h5 class="font-semibold">Curve</h5>
           <p>C, S, G, R</p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Curve" alt="Esempio Aste Curve"></a>
+          <img src="./images/aste_curve.jpg" alt="Esempio Aste Curve">
         </div>
         <div>
           <h5 class="font-semibold">Rette</h5>
           <p>T, I, L</p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Rette" alt="Esempio Aste Rette"></a>
+          <img src="./images/aste_rette.jpg" alt="Esempio Aste Rette">
         </div>
         <div>
           <h5 class="font-semibold">Miste</h5>
           <p>G, R</p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Aste+Miste" alt="Esempio Aste Miste"></a>
+          <img src="./images/aste_miste.jpg" alt="Esempio Aste Miste">
         </div>
       </div>
     </div>
-
-    <div class="section-box">
-      <h3 class="text-xl font-bold">Varianti</h3>
-      <p>Il carattere tipografico ha uno stile e delle varianti dettate da:</p>
-      <ul>
-        <li><strong>Spessore delle aste:</strong> Influisce sul peso visivo del testo, può essere leggero, normale o bold.</li>
-        <li><strong>Larghezza del carattere:</strong> Può essere condensato, normale o espanso.</li>
-        <li><strong>Pendenza:</strong> Determina se il carattere è inclinato o dritto (obliquo, italico).</li>
-      </ul>
-      <a href="#"><img src="https://via.placeholder.com/600x300.png?text=Varianti" alt="Esempio Varianti"></a>
-    </div>
   </div>
 
+  <!-- Tab Composizione & Allineamenti -->
   <div id="composizione" class="tab-content">
     <div class="section-box">
-      <h3 class="text-xl font-bold">Spaziatura</h3>
-      <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
-      <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
-      <a href="#"><img src="https://via.placeholder.com/600x200.png?text=Spaziatura" alt="Esempio Spaziatura"></a>
+      <h3 class="text-xl font-bold">Varianti</h3>
+      <ul>
+        <li><strong>Spessore delle aste:</strong> peso visivo del testo, può essere leggero, normale o bold</li>
+        <li><strong>Larghezza del carattere:</strong> condensato, normale o espanso</li>
+        <li><strong>Pendenza:</strong> dritto o inclinato (obliquo, italico)</li>
+      </ul>
+      <img src="./images/varianti.jpg" alt="Esempio Varianti">
     </div>
+
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Spaziatura</h3>
+      <p><strong>Crenatura:</strong> spazio tra due lettere specifiche</p>
+      <p><strong>Tracking:</strong> spaziatura uniforme tra tutte le lettere di una parola o riga</p>
+      <img src="./images/spaziatura.jpg" alt="Esempio Spaziatura">
+    </div>
+
     <div class="section-box">
       <h3 class="text-xl font-bold">Interlinea</h3>
-      <p>Spazio tra le righe di testo. Esistono diversi tipi di interlinea, ad esempio singola, 1.5x, doppia o proporzionale al corpo del testo. L'interlinea influisce sulla leggibilità e sull'impatto visivo.</p>
-      <a href="#"><img src="https://via.placeholder.com/600x200.png?text=Interlinea" alt="Esempio Interlinea"></a>
+      <p>Spazio tra le righe di testo, influisce sulla leggibilità. Esempi: singola, 1.5x, doppia, proporzionale al corpo del testo.</p>
+      <img src="./images/interlinea.jpg" alt="Esempio Interlinea">
     </div>
+
     <div class="section-box">
       <h3 class="text-xl font-bold">Allineamento</h3>
       <div class="grid grid-cols-3 gap-4 mt-2">
         <div>
           <p><strong>Bandiera</strong> (allineato a sinistra)</p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Bandiera" alt="Esempio Bandiera"></a>
+          <img src="./images/bandiera.jpg" alt="Esempio Bandiera">
         </div>
         <div>
           <p><strong>Centrale</strong></p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Centrale" alt="Esempio Centrale"></a>
+          <img src="./images/centrale.jpg" alt="Esempio Centrale">
         </div>
         <div>
           <p><strong>Giustificato</strong></p>
-          <a href="#"><img src="https://via.placeholder.com/200x150.png?text=Giustificato" alt="Esempio Giustificato"></a>
+          <img src="./images/giustificato.jpg" alt="Esempio Giustificato">
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Pagina Pittogrammi & Loghi -->
 <div id="pittogrammi" class="page-content" style="display:none;">
   <h2 class="text-3xl text-orange-600 mb-4">Pittogrammi & Loghi</h2>
   <div class="tab-bar">
@@ -277,7 +302,7 @@
         <li>Colori contrastanti per visibilità</li>
         <li>Ideali per segnaletica, icone e infografiche</li>
       </ul>
-      <a href="#"><img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Pittogrammi" alt="Esempio di Pittogrammi"></a>
+      <img src="./images/pittogrammi.jpg" alt="Esempio di Pittogrammi">
     </div>
   </div>
 
@@ -287,4 +312,43 @@
       <ul class="list-disc list-inside">
         <li>Semplici e riconoscibili</li>
         <li>Versioni monocromatiche o a colori</li>
-        <li>Font leggibile anche per persone c
+        <li>Font leggibile anche per persone con disabilità</li>
+      </ul>
+      <img src="./images/loghi.jpg" alt="Esempio di Loghi">
+    </div>
+  </div>
+</div>
+
+<!-- Pagina Altro -->
+<div id="altro" class="page-content" style="display:none;">
+  <h2 class="text-3xl text-orange-600 mb-4">Altro argomento</h2>
+  <p>Qui potrai inserire altri argomenti di ripasso o approfondimento.</p>
+</div>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+    document.getElementById(pageId).style.display = 'block';
+
+    const firstTabButton = document.querySelector(`#${pageId} .tab-bar button`);
+    if (firstTabButton) {
+      const firstTabId = firstTabButton.getAttribute('onclick').match(/'([^']+)'/)[1];
+      showTab(firstTabId);
+    }
+  }
+
+  function showTab(tabId) {
+    const parentPage = document.getElementById(tabId).closest('.page-content');
+    if (parentPage) {
+      parentPage.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    }
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    showPage('ripasso');
+  });
+</script>
+
+</body>
+</html>
