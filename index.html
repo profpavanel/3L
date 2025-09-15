@@ -17,8 +17,24 @@
     header {
       background-color: #6b21a8;
       color: white;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
+    }
+    nav {
+      background-color: #50157d;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: block;
+      font-weight: 600;
+    }
+    nav a:hover {
+      background-color: #7c3aed;
     }
     section {
       padding: 20px;
@@ -42,6 +58,18 @@
       border-left: 5px solid #6b21a8;
       margin: 15px 0;
     }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .grid-3 div {
+      background: #f9f5ff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
@@ -49,7 +77,15 @@
     <h1>Ripasso: Il Carattere Tipografico</h1>
   </header>
 
-  <section>
+  <nav>
+    <a href="#carattere">Che cos’è</a>
+    <a href="#categorie">Categorie</a>
+    <a href="#anatomia">Anatomia</a>
+    <a href="#varianti">Stile e Varianti</a>
+    <a href="#schema">Schema</a>
+  </nav>
+
+  <section id="carattere">
     <h2>Che cos’è il carattere?</h2>
     <p>
       Il <strong>carattere</strong> è l’insieme di numeri, lettere e segni accomunati dallo stesso stile.  
@@ -59,9 +95,10 @@
       La <strong>famiglia tipografica</strong> è invece un gruppo di font che seguono gli stessi criteri di aspetto e struttura.  
       Le varianti possono dipendere da: <em>dimensioni del corpo, pesi e spessori, inclinazione e larghezza</em>.
     </p>
+    <img src="famiglia-tipografica.jpg" alt="Esempio di famiglia tipografica">
   </section>
 
-  <section>
+  <section id="categorie">
     <h2>Principali categorie</h2>
     <p>I caratteri si distinguono soprattutto in due categorie:</p>
     <ul>
@@ -71,22 +108,38 @@
     <img src="serif-vs-sans.jpg" alt="Esempi di caratteri Serif e Sans Serif">
   </section>
 
-  <section>
+  <section id="anatomia">
     <h2>Anatomia della lettera</h2>
     <p>
       L’<strong>anatomia</strong> di un carattere è il modo in cui è composta ogni singola lettera.  
       Ha principalmente due parti:
     </p>
     <ul>
-      <li><strong>Aste</strong> – possono essere curve (C, S), rette (T, I, L) o miste (G, R).</li>
+      <li><strong>Aste</strong> – possono essere curve, rette o miste.</li>
       <li><strong>Grazie</strong> – piccoli tratti terminali (non sempre presenti).</li>
     </ul>
-    <p>
-      Le aste possono essere <em>uniformi</em> oppure <em>modulari</em> (con variazione di spessore).
-    </p>
+
+    <h3>Aste</h3>
+    <div class="grid-3">
+      <div>
+        <h4>Curve</h4>
+        <p>C, S</p>
+        <img src="aste-curve.jpg" alt="Esempio di aste curve">
+      </div>
+      <div>
+        <h4>Rette</h4>
+        <p>T, I, L</p>
+        <img src="aste-rette.jpg" alt="Esempio di aste rette">
+      </div>
+      <div>
+        <h4>Miste</h4>
+        <p>G, R</p>
+        <img src="aste-miste.jpg" alt="Esempio di aste miste">
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section id="varianti">
     <h2>Stile e varianti</h2>
     <p>
       Ogni carattere tipografico ha uno <strong>stile</strong> e delle <strong>varianti</strong>, che dipendono da:
@@ -96,9 +149,10 @@
       <li>Larghezza del carattere</li>
       <li>Pendenza (diritto o inclinato)</li>
     </ul>
+    <img src="varianti.jpg" alt="Esempio di varianti tipografiche">
   </section>
 
-  <section>
+  <section id="schema">
     <h2>Schema degli elementi del carattere</h2>
     <p>Gli elementi principali di un carattere tipografico sono:</p>
     <ul>
@@ -110,7 +164,7 @@
     <img src="schema-carattere.jpg" alt="Schema degli elementi del carattere">
   </section>
 
-  <section>
+  <section id="laboratorio">
     <h2>Laboratorio</h2>
     <div class="note">
       <p>👉 Qui inseriremo le attività pratiche (quiz, esercizi, abbinamenti) quando mi darai le tracce.</p>
