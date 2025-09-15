@@ -88,6 +88,12 @@
       margin-bottom:0.25rem;
     }
     .sidebar nav a.menu-item:hover{ background:rgba(0,0,0,0.06); }
+    .sidebar .subvoci{
+      display:none;
+      margin-left:1rem;
+      font-style:italic;
+      margin-bottom:0.5rem;
+    }
 
     .main{
       flex:1;
@@ -98,6 +104,7 @@
     @media(min-width:900px){
       .sidebar{ position:relative; transform:none; inset:auto; }
       .main{ margin-left:280px; }
+      .sidebar .subvoci{ display:block; }
     }
 
     .page{
@@ -125,88 +132,6 @@
     }
     .btn:focus{ outline:3px solid rgba(0,0,0,0.08); outline-offset:2px; }
 
-    .topic-actions{
-      display:flex;
-      gap:0.5rem;
-      margin:0.75rem 0;
-      flex-wrap:wrap;
-    }
-    .topic-actions .action {
-      background:var(--accent);
-      border:none;
-      color:#000;
-      padding:0.6rem 0.9rem;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:700;
-    }
-    .topic-actions .action[aria-current="true"]{ box-shadow:0 4px 10px rgba(0,0,0,0.08); }
-
-    .lettering-submenu, .pittogrammi-submenu {
-      position:sticky;
-      top:56px;
-      background:linear-gradient(#fff,#fff);
-      z-index:25;
-      display:flex;
-      gap:0.5rem;
-      padding:0.6rem 0;
-      border-bottom:1px solid #f0f0f0;
-      margin-bottom:1rem;
-    }
-    .lettering-submenu button, .pittogrammi-submenu button{
-      background:transparent;
-      border:1px solid #ddd;
-      padding:0.5rem 0.8rem;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:600;
-      color:var(--text);
-    }
-    .lettering-submenu button.active, .pittogrammi-submenu button.active{
-      background:var(--accent);
-      border-color:var(--accent-dark);
-    }
-
-    .section-block{
-      margin-bottom:1rem;
-      padding:0.85rem;
-      border-radius:8px;
-      background:#fbfbfb;
-      border:1px solid #eee;
-    }
-
-    .three-cols{
-      display:flex;
-      gap:0.75rem;
-      flex-wrap:wrap;
-    }
-    .three-cols .col{
-      flex:1;
-      min-width:160px;
-      background:#fff;
-      padding:0.8rem;
-      border-radius:8px;
-      border:1px solid #eee;
-      text-align:center;
-    }
-
-    img.example{
-      width:100%;
-      max-width:520px;
-      height:auto;
-      display:block;
-      margin:0.75rem 0;
-      border-radius:8px;
-      border:1px solid #ddd;
-    }
-
-    /* Sottovoci sotto Ripasso */
-    .subvoci{
-      margin-left:1rem;
-      font-style:italic;
-      margin-bottom:0.5rem;
-    }
-
     a:focus, button:focus { outline: 3px solid rgba(34,34,34,0.12); outline-offset:2px; }
   </style>
 </head>
@@ -226,82 +151,27 @@
   <div class="layout">
     <aside class="sidebar" id="sidebar" aria-hidden="true">
       <nav aria-label="Menù principale">
-        <a href="#" class="menu-item" data-page="home" id="link-home">Pagina principale</a>
-        <a href="#" class="menu-item" data-page="ripasso" id="link-ripasso">Ripasso</a>
-        <div class="subvoci">Lettering</div>
-        <div class="subvoci">Pittogrammi &amp; Loghi</div>
+        <a href="#" class="menu-item" id="link-home">Pagina principale</a>
+        <a href="#" class="menu-item" id="link-ripasso">Ripasso</a>
+        <div class="subvoci" id="sub-lettering">Lettering</div>
+        <div class="subvoci" id="sub-pittogrammi">Pittogrammi &amp; Loghi</div>
       </nav>
     </aside>
 
     <main class="main" id="main">
       <div class="page" id="page-home" role="region" aria-labelledby="home-title">
         <h1 id="home-title">Pagina principale</h1>
-        <p class="muted">Qui troverai gli argomenti che tratteremo durante il ripasso: lettering, pittogrammi e loghi. Seleziona "Ripasso" dal menù per cominciare.</p>
-        <div style="margin-top:1rem;" class="topic-actions" role="navigation" aria-label="Azioni rapide Ripasso">
-          <button class="action" id="open-lettering">Apri Lettering</button>
-          <button class="action" id="open-pittogrammi">Apri Pittogrammi e Loghi</button>
-        </div>
+        <p class="muted">Qui troverai gli argomenti che tratteremo durante il ripasso: lettering, pittogrammi e loghi. Seleziona "Ripasso" dal menù per vedere le voci disponibili.</p>
       </div>
 
-      <div class="page" id="page-ripasso" role="region" aria-labelledby="ripasso-title" style="display:none;">
-        <h1 id="ripasso-title">Ripasso</h1>
-        <p class="muted">Scegli l'argomento di ripasso.</p>
-        <div class="topic-actions" role="navigation">
-          <button class="action" id="go-lettering">Lettering</button>
-          <button class="action" id="go-pittogrammi">Pittogrammi &amp; Loghi</button>
-        </div>
-      </div>
-
-      <!-- Lettering page -->
       <div class="page" id="page-lettering" role="region" aria-labelledby="lettering-title" style="display:none;">
         <h1 id="lettering-title">Lettering</h1>
-        <div class="lettering-submenu" role="tablist" aria-label="Sottosezioni lettering">
-          <button class="subtab-btn active" data-sub="definizioni" role="tab" aria-selected="true">Definizioni</button>
-          <button class="subtab-btn" data-sub="varianti" role="tab" aria-selected="false">Varianti</button>
-          <button class="subtab-btn" data-sub="categorie" role="tab" aria-selected="false">Categorie</button>
-          <button class="subtab-btn" data-sub="anatomia" role="tab" aria-selected="false">Anatomia</button>
-          <button class="subtab-btn" data-sub="stile" role="tab" aria-selected="false">Stile e Varianti</button>
-        </div>
-        <div id="lettering-content">
-          <!-- Contenuti come prima (Definizioni, Varianti...) -->
-          <!-- Mantieni lo stesso codice del precedente HTML per le sezioni qui -->
-        </div>
+        <p>Qui inserirai tutte le sottosezioni del lettering con immagini ed esempi.</p>
       </div>
 
-      <!-- Pittogrammi page -->
       <div class="page" id="page-pittogrammi" role="region" aria-labelledby="pittogrammi-title" style="display:none;">
         <h1 id="pittogrammi-title">Pittogrammi &amp; Loghi</h1>
-        <div class="pittogrammi-submenu" role="tablist" aria-label="Sottosezioni pittogrammi e loghi">
-          <button class="subtab-btn active" data-sub="pittogrammi" role="tab" aria-selected="true">Pittogrammi</button>
-          <button class="subtab-btn" data-sub="loghi" role="tab" aria-selected="false">Loghi</button>
-          <button class="subtab-btn" data-sub="differenze" role="tab" aria-selected="false">Differenze &amp; consigli</button>
-        </div>
-        <div id="pittogrammi-content">
-          <!-- Pittogrammi -->
-          <section class="section-block" id="sub-pittogrammi" role="tabpanel">
-            <h2>Pittogrammi</h2>
-            <p>Segni grafici semplici e immediati per comunicare informazioni in modo universale.</p>
-            <img class="example" src="img/pittogramma-esempio.jpg" alt="Esempio di pittogramma (segnaposto)">
-          </section>
-          <!-- Loghi -->
-          <section class="section-block" id="sub-loghi" role="tabpanel" style="display:none;">
-            <h2>Loghi</h2>
-            <p>Rappresentano l'identità di un'organizzazione o prodotto.</p>
-            <ul>
-              <li>Logotipo (solo testo)</li>
-              <li>Marchio (solo simbolo)</li>
-              <li>Combinazione (testo + simbolo)</li>
-            </ul>
-            <img class="example" src="img/logo-esempio.jpg" alt="Esempio di logo (segnaposto)">
-          </section>
-          <section class="section-block" id="sub-differenze" role="tabpanel" style="display:none;">
-            <h2>Differenze &amp; consigli</h2>
-            <ul>
-              <li>Pittogramma = simbolo funzionale</li>
-              <li>Logo = elemento di branding, coerenza cromatica e tipografica</li>
-            </ul>
-          </section>
-        </div>
+        <p>Qui inserirai tutte le sottosezioni su pittogrammi e loghi con immagini ed esempi.</p>
       </div>
     </main>
   </div>
@@ -310,7 +180,6 @@
     (function(){
       const sidebar = document.getElementById('sidebar');
       const hamburger = document.getElementById('hamburger');
-      const main = document.getElementById('main');
 
       hamburger.addEventListener('click', () => {
         const open = sidebar.classList.toggle('open');
@@ -320,10 +189,10 @@
 
       const pages = {
         home: document.getElementById('page-home'),
-        ripasso: document.getElementById('page-ripasso'),
         lettering: document.getElementById('page-lettering'),
         pittogrammi: document.getElementById('page-pittogrammi')
       };
+
       function showPage(name){
         Object.values(pages).forEach(p => p.style.display = 'none');
         pages[name].style.display = 'block';
@@ -331,31 +200,27 @@
           sidebar.classList.remove('open');
           hamburger.setAttribute('aria-expanded','false');
         }
-        main.scrollTo({ top: 0, behavior: 'smooth' });
+        document.getElementById('main').scrollTo({ top: 0, behavior: 'smooth' });
       }
 
+      // Link principale
       document.getElementById('link-home').addEventListener('click', e => { e.preventDefault(); showPage('home'); });
-      document.getElementById('link-ripasso').addEventListener('click', e => { e.preventDefault(); showPage('ripasso'); });
-      document.getElementById('open-lettering').addEventListener('click', () => showPage('lettering'));
-      document.getElementById('open-pittogrammi').addEventListener('click', () => showPage('pittogrammi'));
-      document.getElementById('go-lettering').addEventListener('click', () => showPage('lettering'));
-      document.getElementById('go-pittogrammi').addEventListener('click', () => showPage('pittogrammi'));
 
-      // Lettering subtabs
-      const letteringBtns = document.querySelectorAll('#page-lettering .subtab-btn');
-      const letteringSections = document.querySelectorAll('#lettering-content section');
-      letteringBtns.forEach(btn => btn.addEventListener('click', ()=>{
-        letteringBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active');
-        letteringSections.forEach(s => s.style.display = (s.id === 'sub-'+btn.dataset.sub)?'block':'none');
-      }));
+      // Sottovoci inizialmente nascoste
+      const subLettering = document.getElementById('sub-lettering');
+      const subPittogrammi = document.getElementById('sub-pittogrammi');
+      subLettering.addEventListener('click', () => showPage('lettering'));
+      subPittogrammi.addEventListener('click', () => showPage('pittogrammi'));
 
-      // Pittogrammi subtabs
-      const pittogrammiBtns = document.querySelectorAll('#page-pittogrammi .subtab-btn');
-      const pittogrammiSections = document.querySelectorAll('#pittogrammi-content section');
-      pittogrammiBtns.forEach(btn => btn.addEventListener('click', ()=>{
-        pittogrammiBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active');
-        pittogrammiSections.forEach(s => s.style.display = (s.id === 'sub-'+btn.dataset.sub)?'block':'none');
-      }));
+      // Ripasso toggle sottovoci
+      const linkRipasso = document.getElementById('link-ripasso');
+      let ripassoOpen = false;
+      linkRipasso.addEventListener('click', e=>{
+        e.preventDefault();
+        ripassoOpen = !ripassoOpen;
+        subLettering.style.display = ripassoOpen ? 'block' : 'none';
+        subPittogrammi.style.display = ripassoOpen ? 'block' : 'none';
+      });
 
       // Zoom
       const zoomIn = document.getElementById('zoom-in');
