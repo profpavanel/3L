@@ -15,26 +15,28 @@
       line-height: 1.6;
     }
     header {
-      background-color: #6b21a8;
-      color: white;
+      background-color: #facc15; /* giallo */
+      color: black;
       padding: 15px;
       text-align: center;
     }
     nav {
-      background-color: #50157d;
+      background-color: #eab308; /* giallo più scuro */
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      display: block;
+    nav button {
+      background: none;
+      border: none;
+      color: black;
       font-weight: 600;
+      padding: 12px 20px;
+      cursor: pointer;
     }
-    nav a:hover {
-      background-color: #7c3aed;
+    nav button.active {
+      background-color: #fef08a; /* giallo chiaro per tab attiva */
+      border-bottom: 3px solid #ca8a04;
     }
     section {
       padding: 20px;
@@ -42,9 +44,13 @@
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none; /* nascosto di default */
+    }
+    section.active {
+      display: block;
     }
     h2 {
-      color: #6b21a8;
+      color: #ca8a04;
     }
     img {
       max-width: 100%;
@@ -53,9 +59,9 @@
       border-radius: 8px;
     }
     .note {
-      background: #f3e8ff;
+      background: #fef9c3;
       padding: 10px;
-      border-left: 5px solid #6b21a8;
+      border-left: 5px solid #ca8a04;
       margin: 15px 0;
     }
     .grid-3 {
@@ -65,7 +71,7 @@
       text-align: center;
     }
     .grid-3 div {
-      background: #f9f5ff;
+      background: #fefce8;
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 6px;
@@ -78,14 +84,14 @@
   </header>
 
   <nav>
-    <a href="#carattere">Che cos’è</a>
-    <a href="#categorie">Categorie</a>
-    <a href="#anatomia">Anatomia</a>
-    <a href="#varianti">Stile e Varianti</a>
-    <a href="#schema">Schema</a>
+    <button class="tablink active" data-tab="carattere">Che cos’è</button>
+    <button class="tablink" data-tab="categorie">Categorie</button>
+    <button class="tablink" data-tab="anatomia">Anatomia</button>
+    <button class="tablink" data-tab="varianti">Stile e Varianti</button>
+    <button class="tablink" data-tab="schema">Schema</button>
   </nav>
 
-  <section id="carattere">
+  <section id="carattere" class="active">
     <h2>Che cos’è il carattere?</h2>
     <p>
       Il <strong>carattere</strong> è l’insieme di numeri, lettere e segni accomunati dallo stesso stile.  
@@ -95,6 +101,9 @@
       La <strong>famiglia tipografica</strong> è invece un gruppo di font che seguono gli stessi criteri di aspetto e struttura.  
       Le varianti possono dipendere da: <em>dimensioni del corpo, pesi e spessori, inclinazione e larghezza</em>.
     </p>
+    <div class="note">
+      📌 I caratteri non servono solo per essere leggibili, ma anche per comunicare emozioni e dare identità a un testo.
+    </div>
     <img src="famiglia-tipografica.jpg" alt="Esempio di famiglia tipografica">
   </section>
 
@@ -102,8 +111,8 @@
     <h2>Principali categorie</h2>
     <p>I caratteri si distinguono soprattutto in due categorie:</p>
     <ul>
-      <li><strong>Serif</strong>: con grazie (es. <span style="font-family: 'Times New Roman', serif;">Times New Roman</span>)</li>
-      <li><strong>Sans Serif</strong>: senza grazie, lineari o bastoni (es. <span style="font-family: Arial, sans-serif;">Arial</span>)</li>
+      <li><strong>Serif</strong>: con grazie (es. <span style="font-family: 'Times New Roman', serif;">Times New Roman</span>), usati spesso in testi lunghi e libri perché aiutano l’occhio a seguire la riga.</li>
+      <li><strong>Sans Serif</strong>: senza grazie (es. <span style="font-family: Arial, sans-serif;">Arial</span>), usati molto nel digitale per la loro chiarezza.</li>
     </ul>
     <img src="serif-vs-sans.jpg" alt="Esempi di caratteri Serif e Sans Serif">
   </section>
@@ -145,10 +154,13 @@
       Ogni carattere tipografico ha uno <strong>stile</strong> e delle <strong>varianti</strong>, che dipendono da:
     </p>
     <ul>
-      <li>Spessore delle aste</li>
-      <li>Larghezza del carattere</li>
-      <li>Pendenza (diritto o inclinato)</li>
+      <li>Spessore delle aste (es. Light, Regular, Bold)</li>
+      <li>Larghezza del carattere (Condensed, Regular, Extended)</li>
+      <li>Pendenza (Upright, Italic, Oblique)</li>
     </ul>
+    <div class="note">
+      ℹ️ Le varianti servono a creare gerarchie visive e a dare ritmo a un testo.
+    </div>
     <img src="varianti.jpg" alt="Esempio di varianti tipografiche">
   </section>
 
@@ -167,9 +179,26 @@
   <section id="laboratorio">
     <h2>Laboratorio</h2>
     <div class="note">
-      <p>👉 Qui inseriremo le attività pratiche (quiz, esercizi, abbinamenti) quando mi darai le tracce.</p>
+      👉 Qui inseriremo le attività pratiche (quiz, esercizi, abbinamenti) quando mi darai le tracce.
     </div>
   </section>
 
+  <script>
+    // Script per gestire i tab
+    const buttons = document.querySelectorAll(".tablink");
+    const sections = document.querySelectorAll("section");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // reset
+        buttons.forEach(b => b.classList.remove("active"));
+        sections.forEach(s => s.classList.remove("active"));
+
+        // attiva tab e sezione
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
 </body>
 </html>
