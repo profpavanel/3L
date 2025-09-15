@@ -3,197 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Argomenti Classe 3L</title>
+<title>Argomenti - Ripasso Grafica</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #374151;
+    font-size: 1.1rem;
+    padding-left: 240px; /* Spazio per il menu fisso su schermi grandi */
+  }
+  h1, h2, h3 {
+    font-family: 'Permanent Marker', cursive;
+  }
+  .menu {
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fef08a;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    z-index: 20;
+  }
+  .menu a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .menu a.sub {
+    font-style: italic;
+    margin-left: 1rem;
+  }
+  .content {
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .tab-bar {
+    display: flex;
+    flex-wrap: wrap; /* Permette ai bottoni di andare a capo */
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: #fff8dc;
+    padding: 0.5rem 0;
+    z-index: 10;
+  }
+  .tab-bar button {
+    background-color: #f97316;
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-bar button:hover {
+    background-color: #ea580c;
+  }
+  .tab-content {
+    display: none;
+    margin-top: 1rem;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .section-box {
+    border: 2px solid #f97316;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .diagram div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .diagram span {
+    font-weight: 600;
+    color: #f97316;
+  }
+  .grid-img3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 768px) {
     body {
-        font-family: 'Montserrat', sans-serif;
-        color: #374151;
+      padding-left: 0;
+      padding-top: 60px; /* Spazio per il menu mobile */
     }
-    h1,h2,h3,h4 {
-        font-family: 'Permanent Marker', cursive;
+    .menu {
+      width: 100%;
+      height: 60px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      flex-direction: row;
+      justify-content: space-around;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
     }
-    .menu-button {
-        background-color: #fbbf24; /* giallo classe 3L */
-        color: black;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        border-radius: 0.75rem;
-        margin: 0.25rem;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
+    .content {
+      margin-left: 0;
     }
-    .menu-button:hover {
-        background-color: #fcd34d;
-    }
-    .tab-button {
-        background-color: #f59e0b; /* arancione per sottotitoli */
-        color: white;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        margin: 0.25rem;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-    }
-    .tab-button:hover {
-        background-color: #d97706;
-    }
-    .tab-content {
-        display: none;
-        padding: 1rem;
-        margin-top: 1rem;
-        border: 2px solid #f59e0b;
-        border-radius: 1rem;
-        background-color: #fff7ed;
-    }
-    .active-tab {
-        display: block;
-    }
-    .section-content {
-        margin-top: 2rem;
-    }
-    .sub-title {
-        font-style: italic;
-        margin-left: 1rem;
-        font-size: 1.1rem;
-        margin-top: 0.5rem;
-    }
-    .image-placeholder {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        margin-top: 1rem;
-        border: 2px solid #f59e0b;
-        border-radius: 0.5rem;
-    }
+  }
 </style>
 </head>
-<body class="p-6 md:p-12">
+<body>
 
-<!-- Menu principale -->
-<header class="mb-8">
-    <h1 class="text-3xl md:text-5xl text-black mb-2">Argomenti</h1>
-    <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
-    <div class="mt-4 flex flex-wrap">
-        <button class="menu-button" onclick="showSection('ripasso')">Ripasso</button>
-        <button class="menu-button" onclick="showSection('altro')">Altro</button>
-    </div>
-</header>
-
-<!-- Sezioni -->
-<div id="ripasso" class="section-content">
-    <h2 class="text-2xl md:text-4xl mb-4">Ripasso</h2>
-
-    <!-- Sottovoci -->
-    <div class="flex flex-wrap">
-        <button class="tab-button" onclick="openTab('lettering')">Lettering</button>
-        <button class="tab-button" onclick="openTab('pittogrammi')">Pittogrammi e Loghi</button>
-    </div>
-
-    <!-- Lettering Tab -->
-    <div id="lettering" class="tab-content">
-        <h3 class="text-xl mb-2">Definizione e Famiglie</h3>
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <p>Il carattere tipografico è un insieme di numeri e segni accomunati dallo stesso stile. La famiglia tipografica è un gruppo di font che seguono gli stessi criteri di aspetto e struttura. I caratteri sono raggruppati per famiglie con varianti di spessore, larghezza e inclinazione.</p>
-            <img src="./carattere.jpg" alt="Cos'è un carattere" class="image-placeholder">
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <h4 class="sub-title">Categorie</h4>
-            <p>I serif (con grazie) e i sans serif (senza grazie) sono le principali categorie. I serif sono detti anche graziati, i sans serif anche bastoni.</p>
-            <div class="flex space-x-4 mt-2">
-                <img src="./serif.jpg" alt="Serif" class="image-placeholder">
-                <img src="./sans.jpg" alt="Sans Serif" class="image-placeholder">
-            </div>
-        </div>
-
-        <h3 class="text-xl mb-2">Anatomia</h3>
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <p>Ogni lettera è composta da varie parti: linea di base, ascendente, discendente, apice, vertice, asta, asta trasversale e barra.</p>
-            <img src="./anatomia.jpg" alt="Anatomia delle lettere" class="image-placeholder">
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <h4 class="sub-title">Varianti</h4>
-            <div class="flex flex-wrap">
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Spessore delle aste</h5>
-                    <p>Le aste possono essere uniformi o modulari.</p>
-                    <img src="./spessore.jpg" alt="Spessore" class="image-placeholder">
-                </div>
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Larghezza</h5>
-                    <p>Definisce la larghezza complessiva del carattere.</p>
-                    <img src="./larghezza.jpg" alt="Larghezza" class="image-placeholder">
-                </div>
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Pendenza</h5>
-                    <p>Inclinazione del carattere rispetto alla linea verticale.</p>
-                    <img src="./pendenza.jpg" alt="Pendenza" class="image-placeholder">
-                </div>
-            </div>
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <h4 class="sub-title">Allineamento e Spaziatura</h4>
-            <div class="flex flex-wrap">
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Allineamento</h5>
-                    <p>Bandiera (sinistra), centrale e giustificato.</p>
-                    <img src="./allineamento.jpg" alt="Allineamento" class="image-placeholder">
-                </div>
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Crenatura e Tracking</h5>
-                    <p>Crenatura: spazio tra due lettere specifiche.<br>Tracking: spaziatura uniforme tra tutte le lettere di una parola o riga.</p>
-                    <img src="./spaziatura.jpg" alt="Spaziatura" class="image-placeholder">
-                </div>
-                <div class="w-full md:w-1/3 p-2">
-                    <h5 class="font-bold">Interlinea</h5>
-                    <p>Distanza tra la linea di base di una riga e quella successiva. Fondamentale per leggibilità.</p>
-                    <img src="./interlinea.jpg" alt="Interlinea" class="image-placeholder">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pittogrammi e Loghi Tab -->
-    <div id="pittogrammi" class="tab-content">
-        <h3 class="text-xl mb-2">Pittogrammi e Loghi</h3>
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <p>I pittogrammi sono simboli grafici che rappresentano concetti o oggetti. Gli ideogrammi rappresentano idee o concetti in forma visiva.</p>
-            <img src="./pittogrammi.jpg" alt="Pittogrammi" class="image-placeholder">
-        </div>
-        <div class="border-l-4 border-orange-500 pl-4 mb-4">
-            <p>I loghi sono marchi grafici che identificano un'azienda o un prodotto. Devono essere chiari, riconoscibili e leggibili anche per persone con disabilità visiva.</p>
-            <img src="./loghi.jpg" alt="Loghi" class="image-placeholder">
-        </div>
-    </div>
+<div class="menu">
+  <a onclick="showPage('home')">Argomenti</a>
+  <a class="sub" onclick="showPage('lettering')">Lettering</a>
+  <a class="sub" onclick="showPage('pittogrammi')">Pittogrammi & Loghi</a>
+  <a onclick="showPage('altro')">Altro argomento</a>
 </div>
 
-<!-- Sezione Altro -->
-<div id="altro" class="section-content">
-    <h2 class="text-2xl md:text-4xl mb-4">Altro</h2>
-    <p>Altri argomenti saranno inseriti qui.</p>
+<div class="content">
+
+<div id="home" class="page-content">
+  <h1 class="text-3xl mb-4">Benvenuti agli Argomenti</h1>
+  <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
+</div>
+
+<div id="lettering" class="page-content" style="display:none;">
+  <h2 class="text-3xl text-orange-600 mb-4">Lettering</h2>
+  <div class="tab-bar">
+    <button onclick="showTab('definizione')">Definizione</button>
+    <button onclick="showTab('anatomia')">Anatomia</button>
+    <button onclick="showTab('composizione')">Composizione & Allineamenti</button>
+  </div>
+
+  <div id="definizione" class="tab-content active">
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Cos'è un carattere</h3>
+      <p>Il carattere tipografico è un insieme di numeri, lettere e simboli accomunati dallo stesso stile. Ogni font rappresenta una serie completa di caratteri con lo stesso stile grafico.</p>
+      <img src="https://via.placeholder.com/600x400.png?text=Cos%C3%A8+un+carattere" alt="Esempio cos'è un carattere">
+    </div>
+
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Categorie</h3>
+      <p>Le principali categorie di caratteri sono:</p>
+      <ul>
+        <li><strong>Serif (con grazie):</strong> Times New Roman, Garamond, Georgia</li>
+        <li><strong>Sans-serif (senza grazie):</strong> Arial, Helvetica, Montserrat</li>
+      </ul>
+      <div class="grid grid-cols-2 gap-4 mt-2">
+        <img src="https://via.placeholder.com/300x200.png?text=Esempio+Serif" alt="Esempio Serif">
+        <img src="https://via.placeholder.com/300x200.png?text=Esempio+Sans-serif" alt="Esempio Sans-serif">
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Famiglie tipografiche</h3>
+      <p>Gruppo di font che condividono caratteristiche simili di forma, struttura e proporzioni. Le famiglie tipografiche possono avere più varianti di peso, larghezza, inclinazione e proporzioni interne che influenzano la leggibilità e lo stile complessivo.</p>
+      <div class="grid grid-cols-2 gap-4 mt-2">
+        <img src="https://via.placeholder.com/300x200.png?text=Famiglia+tipografica+1" alt="Famiglia tipografica 1">
+        <img src="https://via.placeholder.com/300x200.png?text=Famiglia+tipografica+2" alt="Famiglia tipografica 2">
+      </div>
+    </div>
+  </div>
+
+  <div id="anatomia" class="tab-content">
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Aste</h3>
+      <div class="grid grid-cols-3 gap-4 mt-2">
+        <div>
+          <h5 class="font-semibold">Curve</h5>
+          <p>C, S, G, R</p>
+          <img src="https://via.placeholder.com/200x150.png?text=Aste+Curve" alt="Esempio Aste Curve">
+        </div>
+        <div>
+          <h5 class="font-semibold">Rette</h5>
+          <p>T, I, L</p>
+          <img src="https://via.placeholder.com/200x150.png?text=Aste+Rette" alt="Esempio Aste Rette">
+        </div>
+        <div>
+          <h5 class="font-semibold">Miste</h5>
+          <p>G, R</p>
+          <img src="https://via.placeholder.com/200x150.png?text=Aste+Miste" alt="Esempio Aste Miste">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Varianti</h3>
+      <p>Il carattere tipografico ha uno stile e delle varianti dettate da:</p>
+      <ul>
+        <li><strong>Spessore delle aste:</strong> Influisce sul peso visivo del testo, può essere leggero, normale o bold.</li>
+        <li><strong>Larghezza del carattere:</strong> Può essere condensato, normale o espanso.</li>
+        <li><strong>Pendenza:</strong> Determina se il carattere è inclinato o dritto (obliquo, italico).</li>
+      </ul>
+      <img src="https://via.placeholder.com/600x300.png?text=Varianti" alt="Esempio Varianti">
+    </div>
+  </div>
+
+  <div id="composizione" class="tab-content">
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Spaziatura</h3>
+      <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
+      <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
+      <img src="https://via.placeholder.com/600x200.png?text=Spaziatura" alt="Esempio Spaziatura">
+    </div>
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Interlinea</h3>
+      <p>Spazio tra le righe di testo. Esistono diversi tipi di interlinea, ad esempio singola, 1.5x, doppia o proporzionale al corpo del testo. L'interlinea influisce sulla leggibilità e sull'impatto visivo.</p>
+      <img src="https://via.placeholder.com/600x200.png?text=Interlinea" alt="Esempio Interlinea">
+    </div>
+    <div class="section-box">
+      <h3 class="text-xl font-bold">Allineamento</h3>
+      <div class="grid grid-cols-3 gap-4 mt-2">
+        <div>
+          <p><strong>Bandiera</strong> (allineato a sinistra)</p>
+          <img src="https://via.placeholder.com/200x150.png?text=Bandiera" alt="Esempio Bandiera">
+        </div>
+        <div>
+          <p><strong>Centrale</strong></p>
+          <img src="https://via.placeholder.com/200x150.png?text=Centrale" alt="Esempio Centrale">
+        </div>
+        <div>
+          <p><strong>Giustificato</strong></p>
+          <img src="https://via.placeholder.com/200x150.png?text=Giustificato" alt="Esempio Giustificato">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="pittogrammi" class="page-content" style="display:none;">
+  <h2 class="text-3xl text-orange-600 mb-4">Pittogrammi & Loghi</h2>
+  <div class="tab-bar">
+    <button onclick="showTab('pittogrammi-tab')">Pittogrammi</button>
+    <button onclick="showTab('loghi-tab')">Loghi</button>
+  </div>
+
+  <div id="pittogrammi-tab" class="tab-content active">
+    <div class="section-box">
+      <p><strong>Pittogrammi:</strong> Immagini stilizzate che comunicano rapidamente un concetto o un'azione.</p>
+      <p><strong>Ideogrammi:</strong> Simboli grafici che rappresentano un’idea o concetto senza usare parole</p>
+      <ul class="list-disc list-inside">
+        <li>Semplici e leggibili</li>
+        <li>Colori contrastanti per visibilità</li>
+        <li>Ideali per segnaletica, icone e infografiche</li>
+      </ul>
+      <img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Pittogrammi" alt="Esempio di Pittogrammi">
+    </div>
+  </div>
+
+  <div id="loghi-tab" class="tab-content">
+    <div class="section-box">
+      <p><strong>Loghi:</strong> Rappresentano l’identità visiva di un brand o progetto.</p>
+      <ul class="list-disc list-inside">
+        <li>Semplici e riconoscibili</li>
+        <li>Versioni monocromatiche o a colori</li>
+        <li>Font leggibile anche per persone con disabilità</li>
+      </ul>
+      <img src="https://via.placeholder.com/600x400.png?text=Esempio+di+Loghi" alt="Esempio di Loghi">
+    </div>
+  </div>
+</div>
+
+<div id="altro" class="page-content" style="display:none;">
+  <h2 class="text-3xl text-orange-600 mb-4">Altro argomento</h2>
+  <p>Qui potrai inserire altri argomenti di ripasso o approfondimento.</p>
 </div>
 
 <script>
-    function showSection(sectionId) {
-        document.querySelectorAll('.section-content').forEach(sec => sec.style.display = 'none');
-        document.getElementById(sectionId).style.display = 'block';
-    }
+  function showPage(pageId) {
+    document.querySelectorAll('.page-content').forEach(p => p.style.display = 'none');
+    document.getElementById(pageId).style.display = 'block';
 
-    function openTab(tabId) {
-        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active-tab'));
-        document.getElementById(tabId).classList.add('active-tab');
+    const firstTabButton = document.querySelector(`#${pageId} .tab-bar button`);
+    if (firstTabButton) {
+      const firstTabId = firstTabButton.getAttribute('onclick').match(/'([^']+)'/)[1];
+      showTab(firstTabId);
     }
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        showSection('ripasso'); // sezione iniziale
-        openTab('lettering'); // tab iniziale
-    });
+  function showTab(tabId) {
+    const parentPage = document.getElementById(tabId).closest('.page-content');
+    if (parentPage) {
+      parentPage.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    }
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  // Visualizza la prima pagina e il primo tab all'avvio
+  document.addEventListener('DOMContentLoaded', () => {
+    showPage('home');
+  });
 </script>
 
 </body>
