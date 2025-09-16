@@ -26,7 +26,6 @@
 </head>
 <body class="p-6 md:p-12">
 
-    <!-- Menù principale -->
     <header class="mb-8">
         <h1 class="text-3xl md:text-5xl font-bold text-black mb-2">Argomenti</h1>
         <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
@@ -38,11 +37,9 @@
         </nav>
     </header>
 
-    <!-- Sezione Ripasso -->
     <section id="ripasso" class="section-content">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">Ripasso</h2>
 
-        <!-- Tab interna Lettering -->
         <div>
             <div class="mb-4">
                 <button class="tab-button" onclick="openTab('definizione')">Definizione e Famiglie</button>
@@ -50,7 +47,6 @@
                 <button class="tab-button" onclick="openTab('composizione')">Composizione e Allineamenti</button>
             </div>
 
-            <!-- Tab Definizione e Famiglie -->
             <div id="definizione" class="tab active-tab">
                 <div class="orange-box">
                     <p class="sub-title">Cos'è un carattere?</p>
@@ -80,7 +76,6 @@
                 </div>
             </div>
 
-            <!-- Tab Anatomia -->
             <div id="anatomia" class="tab">
                 <div class="orange-box">
                     <p class="sub-title">Aste</p>
@@ -88,9 +83,8 @@
                         <div class="column"><p>Curve: C, S</p></div>
                         <div class="column"><p>Rette: T, I, L</p></div>
                         <div class="column"><p>Miste: G, R</p></div>
-                        <img src="./aste.jpg" alt="Aste curve">
-                        </div>
                     </div>
+                    <img src="./aste.jpg" alt="Aste curve">
                 </div>
 
                 <div class="orange-box">
@@ -118,7 +112,6 @@
                 </div>
             </div>
 
-            <!-- Tab Composizione e Allineamenti -->
             <div id="composizione" class="tab">
                 <div class="orange-box">
                     <p class="sub-title">Spaziatura</p>
@@ -136,11 +129,11 @@
                 <div class="orange-box">
                     <p class="sub-title">Allineamento</p>
                     <div class="three-columns">
-                        <div class="column"><p>Bandiera</p>
-                        <div class="column"><p>Centrale</p>
-                        <div class="column"><p>Giustificato</p>
-                        <img src="./allineamento.jpg" alt="Allineamenti">
+                        <div class="column"><p>Bandiera</p></div>
+                        <div class="column"><p>Centrale</p></div>
+                        <div class="column"><p>Giustificato</p></div>
                     </div>
+                    <img src="./allineamento.jpg" alt="Allineamenti">
                 </div>
 
                 <div class="orange-box">
@@ -157,7 +150,6 @@
         </div>
     </section>
 
-    <!-- Sezione Pittogrammi e Loghi -->
     <section id="pittogrammi" class="section-content">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">Pittogrammi e Loghi</h2>
 
@@ -175,7 +167,7 @@
 
         <div class="orange-box">
             <p class="sub-title">Loghi</p>
-            <p>Un logo è un segno grafico che identifica un marchio o un’azienda. Può contenere testo, pittogrammi o entrambe le cose.</p>
+            <p>Un logo è un segno grafico che identifica un marchio o un’azienda. Pu-o contenere testo, pittogrammi o entrambe le cose.</p>
             <img src="./logo.jpg" alt="Esempio Logo">
         </div>
     </section>
@@ -194,6 +186,9 @@
         // Mostra Argomenti inizialmente
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.section-content').forEach(sec => sec.style.display = 'none');
+            // La prima sezione e la prima tab devono essere visibili di default
+            showSection('ripasso');
+            openTab('definizione');
         });
     </script>
 
