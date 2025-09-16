@@ -35,11 +35,15 @@
 
     <div class="container">
         <header>
-            <h1 class="text-3xl md:text-5xl font-bold text-black mb-2">Argomenti</h1>
+            <h2 class="text-3xl md:text-5xl font-bold text-black mb-2">Argomenti</h2>
             <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
             <nav class="mt-8 flex flex-col space-y-4">
-                <button onclick="showSection('ripasso')" class="bg-yellow-400 hover:bg-yellow-500 py-3 px-4 rounded-lg font-semibold text-left">Ripasso</button>
-                <button onclick="showSection('pittogrammi')" class="bg-yellow-400 hover:bg-yellow-500 py-3 px-4 rounded-lg font-semibold text-left">Pittogrammi e Loghi</button>
+                <p class="font-bold text-lg">Voci principali</p>
+                <a href="#" onclick="showSection('ripasso')" class="bg-yellow-400 hover:bg-yellow-500 py-3 px-4 rounded-lg font-semibold text-left">Ripasso</a>
+                <div class="ml-6 space-y-2">
+                    <a href="#" onclick="showSection('ripasso'); openTab('definizione')" class="text-gray-600 hover:text-black font-semibold text-sm">Lettering</a>
+                    <a href="#" onclick="showSection('pittogrammi')" class="text-gray-600 hover:text-black font-semibold text-sm">Pittogrammi e Loghi</a>
+                </div>
             </nav>
         </header>
 
