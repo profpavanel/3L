@@ -8,181 +8,177 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; color: #374151; font-size: 18px; line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Permanent Marker', cursive; }
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.5rem; }
-        .section-content { padding-left: 2rem; display: none; }
+        body { font-family: 'Montserrat', sans-serif; color: #374151; }
+        h1,h2,h3 { font-family: 'Permanent Marker', cursive; }
+        .section-content { display: none; padding: 2rem; }
         .tab { display: none; padding-top: 1rem; }
-        .tab-button { font-style: italic; background: #FFD966; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; margin-right: 0.5rem; margin-bottom: 1rem; transition: all 0.2s; }
+        .tab-button { font-style: italic; background: #FFD966; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; margin-right: 0.5rem; margin-bottom: 1rem; transition: all 0.2s;}
         .tab-button:hover { background: #FFC107; }
         .active-tab { display: block; }
-        .orange-box { border: 2px solid #FFA500; padding: 1.5rem; margin-top: 1.5rem; border-radius: 0.5rem; }
+        .orange-box { border: 2px solid #FFA500; padding: 1rem; margin-top: 1rem; border-radius: 0.5rem; }
         img { max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; transition: transform 0.3s; }
         img:hover { transform: scale(1.05); }
-        .sub-title { font-weight: bold; margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
+        .sub-title { font-weight: bold; margin-top: 1rem; margin-bottom: 0.5rem; }
         .three-columns { display: flex; flex-wrap: wrap; gap: 1rem; }
         .column { flex: 1; min-width: 150px; }
         .scroll-text { overflow-x: auto; }
-
-        /* Nuovo layout a due colonne */
-        .container { display: flex; min-height: 100vh; }
-        header { width: 25%; padding: 2rem; border-right: 1px solid #e2e8f0; }
-        main { width: 75%; padding: 2rem; }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
-    <div class="container">
-        <header>
-            <h2 class="text-3xl md:text-5xl font-bold text-black mb-2">Argomenti</h2>
-            <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
-            <nav class="mt-8 flex flex-col space-y-4">
-                <p class="font-bold text-lg">Voci principali</p>
-                <a href="#" onclick="showSection('ripasso')" class="bg-yellow-400 hover:bg-yellow-500 py-3 px-4 rounded-lg font-semibold text-left">Ripasso</a>
-                <div class="ml-6 space-y-2">
-                    <a href="#" onclick="showSection('ripasso'); openTab('definizione')" class="text-gray-600 hover:text-black font-semibold text-sm">Lettering</a>
-                    <a href="#" onclick="showSection('pittogrammi')" class="text-gray-600 hover:text-black font-semibold text-sm">Pittogrammi e Loghi</a>
-                </div>
-            </nav>
-        </header>
+    <!-- Menù principale -->
+    <header class="mb-8">
+        <h1 class="text-3xl md:text-5xl font-bold text-black mb-2">Argomenti</h1>
+        <p>In questa pagina saranno disponibili i vari argomenti delle lezioni che svolgeremo.</p>
+        <nav class="mt-4">
+            <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+                <li><button onclick="showSection('ripasso')" class="bg-yellow-400 hover:bg-yellow-500 py-2 px-4 rounded-lg font-semibold">Ripasso</button></li>
+                <li><button onclick="showSection('pittogrammi')" class="bg-yellow-400 hover:bg-yellow-500 py-2 px-4 rounded-lg font-semibold">Pittogrammi e Loghi</button></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main>
-            <section id="ripasso" class="section-content">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Ripasso</h2>
+    <!-- Sezione Ripasso -->
+    <section id="ripasso" class="section-content">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Ripasso</h2>
 
-                <div>
-                    <div class="mb-4">
-                        <button class="tab-button" onclick="openTab('definizione')">Definizione e Famiglie</button>
-                        <button class="tab-button" onclick="openTab('anatomia')">Anatomia</button>
-                        <button class="tab-button" onclick="openTab('composizione')">Composizione e Allineamenti</button>
-                    </div>
+        <!-- Tab interna Lettering -->
+        <div>
+            <div class="mb-4">
+                <button class="tab-button" onclick="openTab('definizione')">Definizione e Famiglie</button>
+                <button class="tab-button" onclick="openTab('anatomia')">Anatomia</button>
+                <button class="tab-button" onclick="openTab('composizione')">Composizione e Allineamenti</button>
+            </div>
 
-                    <div id="definizione" class="tab active-tab">
-                        <div class="orange-box">
-                            <p class="sub-title">Cos'è un carattere?</p>
-                            <p>Il carattere è un insieme di numeri e segni accomunati dallo stesso stile. Ogni carattere ha un font che rappresenta un’intera serie di segni.</p>
-                            <img src="./placeholder1.jpg" alt="Esempio carattere">
+            <!-- Tab Definizione e Famiglie -->
+            <div id="definizione" class="tab active-tab">
+                <div class="orange-box">
+                    <p class="sub-title">Cos'è un carattere?</p>
+                    <p>Il carattere è un insieme di numeri e segni accomunati dallo stesso stile. Ogni carattere ha un font che rappresenta un’intera serie di segni.</p>
+                    <img src="./placeholder1.jpg" alt="Esempio carattere">
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Famiglie Tipografiche</p>
+                    <p>Le famiglie tipografiche sono un gruppo di font che seguono gli stessi criteri (aspetto, struttura, proporzioni). Le varianti principali sono date da dimensioni del corpo, pesi e spessori, inclinazione e larghezza.</p>
+                    <img src="./famiglia1.jpg" alt="Esempio famiglia tipogrfiche">
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Categorie di carattere</p>
+                    <p>“Serif” significa grazia, ovvero allungamenti alle estremità dei caratteri, rendendoli più eleganti. “Sans serif” significa senza grazie, detti anche bastoni.</p>
+                    <div class="three-columns">
+                        <div class="column">
+                            <img src="./serif.jpg" alt="Esempio Serif">
+                            <p>Serif</p>
                         </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Famiglie Tipografiche</p>
-                            <p>Le famiglie tipografiche sono un gruppo di font che seguono gli stessi criteri (aspetto, struttura, proporzioni). Le varianti principali sono date da dimensioni del corpo, pesi e spessori, inclinazione e larghezza.</p>
-                            <img src="./famiglia1.jpg" alt="Esempio famiglia tipogrfiche">
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Categorie di carattere</p>
-                            <p>“Serif” significa grazia, ovvero allungamenti alle estremità dei caratteri, rendendoli più eleganti. “Sans serif” significa senza grazie, detti anche bastoni.</p>
-                            <div class="three-columns">
-                                <div class="column">
-                                    <img src="./serif.jpg" alt="Esempio Serif">
-                                    <p>Serif</p>
-                                </div>
-                                <div class="column">
-                                    <img src="./sans-serif.jpg" alt="Esempio Sans-serif">
-                                    <p>Sans-serif</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div id="anatomia" class="tab">
-                        <div class="orange-box">
-                            <p class="sub-title">Aste</p>
-                            <div class="three-columns">
-                                <div class="column"><p>Curve: C, S</p></div>
-                                <div class="column"><p>Rette: T, I, L</p></div>
-                                <div class="column"><p>Miste: G, R</p></div>
-                                <img src="./aste.jpg" alt="Aste curve">
-                            </div>
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Varianti</p>
-                            <div class="three-columns">
-                                <div class="column"><p>Spessore delle aste</p><img src="./spessore.jpg" alt="Spessore"></div>
-                                <div class="column"><p>Larghezza del carattere</p><img src="./larghezza.jpg" alt="Larghezza"></div>
-                                <div class="column"><p>Pendenza</p><img src="./pendenza.jpg" alt="Pendenza"></div>
-                            </div>
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Elementi del carattere</p>
-                            <ul class="list-disc list-inside">
-                                <li>Linea di base</li>
-                                <li>Asse</li>
-                                <li>Discendente</li>
-                                <li>Ascendente</li>
-                                <li>Apice</li>
-                                <li>Vertice</li>
-                                <li>Asta</li>
-                                <li>Asta trasversale</li>
-                                <li>Barra</li>
-                            </ul>
-                        </div>
-                    </div>
-        
-                    <div id="composizione" class="tab">
-                        <div class="orange-box">
-                            <p class="sub-title">Spaziatura</p>
-                            <p>La spaziatura è lo spazio tra due lettere o due parole. Gestirla correttamente migliora la leggibilità.</p>
-                            <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
-                            <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Interlinea</p>
-                            <p>L’interlinea è la distanza tra la linea di base di una riga di testo e quella della riga successiva. Un’interlinea troppo ridotta diminuisce la leggibilità dei testi lunghi.</p>
-                            <img src="./interlinea.jpg" alt="Interlinea">
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Allineamento</p>
-                            <div class="three-columns">
-                                <div class="column"><p>Bandiera</p></div>
-                                <div class="column"><p>Centrale</p></div>
-                                <div class="column"><p>Giustificato</p></div>
-                            </div>
-                            <img src="./allineamento.jpg" alt="Allineamenti">
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Giustezza e Corpo</p>
-                            <p>Giustezza: misura in larghezza di una riga (mm). Corpo: altezza complessiva del carattere (pt).</p>
-                        </div>
-        
-                        <div class="orange-box">
-                            <p class="sub-title">Valori del carattere</p>
-                            <p>Verbale: parola con significato. Iconico: rappresentazione come immagine.</p>
+                        <div class="column">
+                            <img src="./sans-serif.jpg" alt="Esempio Sans-serif">
+                            <p>Sans-serif</p>
                         </div>
                     </div>
                 </div>
-            </section>
-        
-            <section id="pittogrammi" class="section-content">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Pittogrammi e Loghi</h2>
-        
+            </div>
+
+            <!-- Tab Anatomia -->
+            <div id="anatomia" class="tab">
                 <div class="orange-box">
-                    <p class="sub-title">Cosa sono i pittogrammi?</p>
-                    <p>I pittogrammi sono immagini che rappresentano concetti o oggetti in maniera sintetica e immediata. Possono essere utilizzati nei loghi o in grafica per comunicare rapidamente.</p>
-                    <img src="./pittogramma.jpg" alt="Pittogramma">
+                    <p class="sub-title">Aste</p>
+                    <div class="three-columns">
+                        <div class="column"><p>Curve: C, S</p></div>
+                        <div class="column"><p>Rette: T, I, L</p></div>
+                        <div class="column"><p>Miste: G, R</p></div>
+                        <img src="./aste.jpg" alt="Aste curve">
+                        </div>
+                    </div>
                 </div>
-        
+
                 <div class="orange-box">
-                    <p class="sub-title">Cosa sono gli ideogrammi?</p>
-                    <p>Gli ideogrammi sono simboli che rappresentano idee o concetti astratti. A differenza dei pittogrammi, possono non avere un riferimento diretto alla forma reale dell'oggetto.</p>
-                    <img src="./ideogramma.jpg" alt="Ideogramma">
+                    <p class="sub-title">Varianti</p>
+                    <div class="three-columns">
+                        <div class="column"><p>Spessore delle aste</p><img src="./spessore.jpg" alt="Spessore"></div>
+                        <div class="column"><p>Larghezza del carattere</p><img src="./larghezza.jpg" alt="Larghezza"></div>
+                        <div class="column"><p>Pendenza</p><img src="./pendenza.jpg" alt="Pendenza"></div>
+                    </div>
                 </div>
-        
+
                 <div class="orange-box">
-                    <p class="sub-title">Loghi</p>
-                    <p>Un logo è un segno grafico che identifica un marchio o un’azienda. Può contenere testo, pittogrammi o entrambe le cose.</p>
-                    <img src="./logo.jpg" alt="Esempio Logo">
+                    <p class="sub-title">Elementi del carattere</p>
+                    <ul class="list-disc list-inside">
+                        <li>Linea di base</li>
+                        <li>Asse</li>
+                        <li>Discendente</li>
+                        <li>Ascendente</li>
+                        <li>Apice</li>
+                        <li>Vertice</li>
+                        <li>Asta</li>
+                        <li>Asta trasversale</li>
+                        <li>Barra</li>
+                    </ul>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+
+            <!-- Tab Composizione e Allineamenti -->
+            <div id="composizione" class="tab">
+                <div class="orange-box">
+                    <p class="sub-title">Spaziatura</p>
+                    <p>La spaziatura è lo spazio tra due lettere o due parole. Gestirla correttamente migliora la leggibilità.</p>
+                    <p><strong>Crenatura:</strong> Spazio tra due lettere specifiche</p>
+                    <p><strong>Tracking:</strong> Spaziatura uniforme tra tutte le lettere di una parola o riga</p>
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Interlinea</p>
+                    <p>L’interlinea è la distanza tra la linea di base di una riga di testo e quella della riga successiva. Un’interlinea troppo ridotta diminuisce la leggibilità dei testi lunghi.</p>
+                    <img src="./interlinea.jpg" alt="Interlinea">
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Allineamento</p>
+                    <div class="three-columns">
+                        <div class="column"><p>Bandiera</p>
+                        <div class="column"><p>Centrale</p>
+                        <div class="column"><p>Giustificato</p>
+                        <img src="./allineamento.jpg" alt="Allineamenti">
+                    </div>
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Giustezza e Corpo</p>
+                    <p>Giustezza: misura in larghezza di una riga (mm). Corpo: altezza complessiva del carattere (pt).</p>
+                </div>
+
+                <div class="orange-box">
+                    <p class="sub-title">Valori del carattere</p>
+                    <p>Verbale: parola con significato. Iconico: rappresentazione come immagine.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sezione Pittogrammi e Loghi -->
+    <section id="pittogrammi" class="section-content">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Pittogrammi e Loghi</h2>
+
+        <div class="orange-box">
+            <p class="sub-title">Cosa sono i pittogrammi?</p>
+            <p>I pittogrammi sono immagini che rappresentano concetti o oggetti in maniera sintetica e immediata. Possono essere utilizzati nei loghi o in grafica per comunicare rapidamente.</p>
+            <img src="./pittogramma.jpg" alt="Pittogramma">
+        </div>
+
+        <div class="orange-box">
+            <p class="sub-title">Cosa sono gli ideogrammi?</p>
+            <p>Gli ideogrammi sono simboli che rappresentano idee o concetti astratti. A differenza dei pittogrammi, possono non avere un riferimento diretto alla forma reale dell'oggetto.</p>
+            <img src="./ideogramma.jpg" alt="Ideogramma">
+        </div>
+
+        <div class="orange-box">
+            <p class="sub-title">Loghi</p>
+            <p>Un logo è un segno grafico che identifica un marchio o un’azienda. Può contenere testo, pittogrammi o entrambe le cose.</p>
+            <img src="./logo.jpg" alt="Esempio Logo">
+        </div>
+    </section>
 
     <script>
         function showSection(sectionId) {
@@ -195,11 +191,9 @@
             document.getElementById(tabId).classList.add('active-tab');
         }
 
+        // Mostra Argomenti inizialmente
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.section-content').forEach(sec => sec.style.display = 'none');
-            // Mostra la prima sezione di default
-            document.getElementById('ripasso').style.display = 'block';
-            document.getElementById('definizione').classList.add('active-tab');
         });
     </script>
 
