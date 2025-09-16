@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argomenti Lezioni - Ripasso Grafica</title>
+    <title>Argomenti Grafica - Lettering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -26,10 +26,27 @@
         .flex-container .text-content { flex: 1; }
         .flex-container .image-container { flex: 1; display: flex; gap: 1rem; }
 
-        /* Stili per il layout a due colonne */
+        /* Stili per il layout a due colonne (Desktop) */
         .container { display: flex; }
         header { width: 20%; height: 100vh; position: fixed; top: 0; left: 0; padding: 2rem; border-right: 1px solid #e2e8f0; overflow-y: auto; background-color: #FFFDE7; }
         main { width: 80%; margin-left: 20%; padding: 2rem; }
+
+        /* Media Query per Mobile */
+        @media (max-width: 768px) {
+            .container { display: block; }
+            header {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 1rem;
+            }
+            main {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 <body class="p-6 md:p-12">
